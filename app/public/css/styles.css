@@ -6,7 +6,7 @@ body {
 
 nav,
 .navbar {
-  background-color: rgb(20,40,180);
+  background-color: black;
   color: #eee;
 }
 
@@ -33,6 +33,19 @@ nav,
 
 .cardPaneRight{
   border-left: 1px solid rgb(77,55,41);
+}
+
+footer{
+    background-color: black;
+    color:white;
+    font-size:12px;
+    font-family:sans-serif;
+    padding: 12px;
+    text-align: center;
+}
+
+#home-header{
+  font-size: 36px;
 }
 
 .patientCard {
