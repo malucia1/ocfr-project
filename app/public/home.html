@@ -14,7 +14,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md">
-      <a class="navbar-brand" id="home-header" href="home.html">OCFR</a>
+      <a class="navbar-brand" id="home-header2" href="home.html">OCFR</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -29,91 +29,19 @@
           <li class="nav-item">
             <a class="nav-link" href="former_members.html">Former Members</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="generate_report.html">Reports</a>
+          </li>
         </ul>
       </div>
     </nav>
 
-    <div class="container-fluid">
-      <div class="row" id="triagePage">
-        <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
-          <form method="post" v-on:submit.prevent="handleNewPtForm">
-            <h3>Create New Patient Record</h3>
-
-            <div class="form-group">
-            <label for="newPtFirstName">First Name</label>
-            <input type="text" v-model="newPtForm.firstName" class="form-control" id="newPtFirstName" placeholder="Jane">
-          </div>
-          <div class="form-group">
-            <label for="newPtLastName">Last Name</label>
-            <input type="text" v-model="newPtForm.lastName" class="form-control" id="newPtLastName" placeholder="Doe">
-          </div>
-          <div class="form-group">
-            <label for="newPtDob">DOB</label>
-            <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="2020-01-02">
-          </div>
-          <div class="form-group">
-            <label for="newPtSexAtBirth">Sex at Birth</label>
-            <select class="form-control" v-model="newPtForm.sexAtBirth" id="newPtSexAtBirth">
-              <option value="M">Male</option>
-              <option value="F">Female</option>
-              <option value="O">Other/Unknown</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Create</button>
-
-          </form>
-
-          <h3>List of all patients</h3>
-
-          <div class="patientCard" v-for="pt in ptList" v-on:click="activePt = pt">
-            <span class="lastName">{{ pt.lastName }}</span>,
-            <span clas="firstName">{{ pt.firstName }}</span>
-            <span class="birthDate float-right">{{ pt.dob }}</span>
-          </div>
-
-          <!-- <button v-on:click="yell()">Click Me!</button> -->
-        </div>
-
-        <div class="col-6">
-          <h1>New Visit</h1>
-          <form v-on:submit.prevent="handleTriageForm">
-            <div class="form-group">
-              <label for="ptName">Patient Name</label>
-              <input class="form-control" id="ptName" v-bind:value="activePtName" readonly>
-
-            </div>
-
-          <div class="form-group">
-            <label for="visitDate">Visit Date</label>
-            <input type="text" class="form-control" id="visitDate" placeholder="">
-          </div>
-
-          <div class="form-group">
-            <label for="visitPriority">Priority</label>
-            <select class="form-control" id="visitPriority" v-model="triageForm.priority">
-              <option value="30">Critical</option>
-              <option value="20">Urgent</option>
-              <option value="10">Non-urgent</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="visitSymptoms">Patient Symptoms</label>
-            <textarea class="form-control" id="visitSymptoms" rows="5" v-model="triageForm.symptoms"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-
-        </form>
-        </div>
-        <div class="col cardPane cardPaneRight">
-          <h3>Waiting patients</h3>
-          <div v-for="visit in visitList" class="patientCard triageCritical" data-patient_id="3" data-visit_id="520">
-            <span class="lastName">{{ visit.lastName }}</span>,
-            <span clas="firstName">{{ visit.firstName }}</span>
-            <span class="birthDate text-right">{{ visit.dob }}</span>
-          </div>
+    <div class="background">
+        <div class="transparentbox tboxpad">
+            <h1 class="home-header"> About Us </h1><br>
+                <p class="home-paragraph"> G </p><br>
 
         </div>
-      </div>
     </div>
 
     <footer> OCFR | Indiana University | Bloomington, IN </footer>

@@ -44,7 +44,7 @@ footer{
     text-align: center;
 }
 
-#home-header{
+#home-header2{
   font-size: 36px;
 }
 
@@ -77,4 +77,34 @@ footer{
 .triageMinor {
   border: 3px solid rgb(50,80,220);
   margin: 8px 4px;
+}
+
+.background {
+  background: url("images/fire.jpeg") repeat;
+  border: 1px solid black;
+}
+
+.transparentbox {
+  margin: 40px;
+  background-color: white;
+  border: 1px solid black;
+  opacity: 0.85;
+  filter: alpha(opacity=60);
+}
+
+.tboxpad {
+    padding-left: 15px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+}
+
+.home-header {
+    font-size: 42px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.home-paragraph {
+    font-size: 18px;
+    font-family: sans-serif
 }
