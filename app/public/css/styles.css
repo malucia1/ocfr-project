@@ -35,6 +35,10 @@ nav,
   border-left: 1px solid rgb(77,55,41);
 }
 
+.centeralign{
+  text-align: center;
+}
+
 footer{
     background-color: black;
     color:white;
@@ -79,7 +83,7 @@ footer{
   margin: 8px 4px;
 }
 
-.background {
+.tbackground {
   background: url("images/fire.jpeg") repeat;
   border: 1px solid black;
 }
@@ -96,6 +100,10 @@ footer{
     padding-left: 15px;
     padding-bottom: 10px;
     padding-right: 15px;
+}
+
+.hpadding{
+    padding-top: 25px;
 }
 
 .home-header {
