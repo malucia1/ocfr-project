@@ -37,6 +37,60 @@
       </div>
     </nav>
 
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 profile">
+        <div class="row">
+        <a id="profile_pic">
+          <img v-bind:src="userThumbnail" width=128px; height=128px>
+        </a>
+        <h2 id="profile_name">Harold Potter</h2>
+        </div>
+
+        <div id="profile_info">
+          <h4>Position: </h4><br>
+          <h4>Gender: </h4><br>
+          <h4>DoB: </h4><br>
+          <h4>Address: </h4><br>
+          <h4>Email: </h4><br>
+          <h4>Mobile Phone: </h4><br>
+          <h4>Work Phone: </h4><br>
+          <br><br>
+          <form id="update_profile_button">
+            <button>Update Profile</button>
+          </form>
+        </div>
+      </div>
+
+
+            <div class="table container" id="cert_table">
+              <table id="sortTable member_table" class="table table-bordered table-striped table-hover table-condensed">
+                <thead>
+                  <tr>
+                    <th class="col-xs-4">Certification Name</th>
+                    <th class="col-xs-4">Certification Agency</th>
+                    <th class="col-xs-4" >Issued Date</th>
+                    <th class="col-xs-4" >Expiration Period</th>
+                  </tr>
+                </thead>
+                <tbody class="itable">
+                  <tr>
+                    <td>Fire Detection Certification</td>
+                    <td>Fire Certified LLC</td>
+                    <td>09/22/2018</td>
+                    <td>09/22/2021</td>
+                  <tr>
+                    <td>CPR/AED</td>
+                    <td>American Red Cross</td>
+                    <td>01/08/2020</td>
+                    <td>01/08/2022</td>
+                  </tr>
+                </tbody>
+                </table>
+              </div>
+
+      <!-- Regenerate Random User By Button -->
+      <!-- <button v-on:click="regenerate()">New User</button> -->
+    </div>
+
     <footer> OCFR | Oconee County Fire Rescue | Oconee County, GA </footer>
     <!-- END content -->
 
