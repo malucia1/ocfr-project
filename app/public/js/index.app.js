@@ -4,10 +4,7 @@ var app = new Vue({
     ptList: [],
     visitList: [],
     activePt: null,
-    triageForm: {
-      priority: null,
-      symptoms: ''
-    },
+    triageForm: {},
     newPtForm: {}
   },
   computed: {
@@ -23,6 +20,33 @@ var app = new Vue({
         dob: "",
         sexAtBirth: ""
       }
+    },
+    newTriageData() {
+      return {
+        priority: "",
+        visitDate: "",
+        visitDescription: ""
+      }
+    },
+    dateSince(d) {
+      // Uses Luxon date API (see comment in index.html file)
+      return moment.utc(d).local().calendar();
+    },
+    age(d) {
+      return moment().diff(moment(d), 'years');
+    },
+    /**
+     * Given a priority, returns triage class
+     * or "" if not found
+     **/
+    priorityClass(p) {
+      const priorityClass = {
+        low: "triageMinor",
+        medium: "triageUrgent",
+        high: "triageCritical"
+      };
+
+      return p in priorityClass ? priorityClass[p] : "";
     },
     handleNewPtForm( evt ) {
       // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
@@ -41,19 +65,38 @@ var app = new Vue({
         console.log("Returned from post:", json);
         // TODO: test a result was returned!
         this.ptList.push(json[0]);
+        this.newPtForm = this.newPtData();
       });
 
       console.log("Creating (POSTing)...!");
       console.log(this.newPtForm);
-
-      this.newPtForm = this.newPtData();
     },
     handleTriageForm( evt ) {
-      console.log("Form submitted!");
+      console.log("Triage form submitted!");
 
-      this.triageForm.pt = this.activePt;
+      if (!this.activePt) {
+        alert("ERROR: No patient selected!");
+        return false;
+      }
+      this.triageForm.patientGuid = this.activePt.patientGuid;
+
+      var tempTime = this.triageForm.visitDate == "" ? moment() : moment(this.triageForm.visitDate);
+      this.triageForm.visitDateUtc = tempTime.utc().format('YYYY-MM-DD HH:mm:ss');
       console.log(this.triageForm);
 
+      fetch('api/visits/create.php', {
+        method:'POST',
+        body: JSON.stringify(this.triageForm),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json() )
+      .then( json => {
+        console.log("Returned from triage create:", json);
+        this.visitList = json;
+        this.newTriageForm = this.newTriageData();
+      });
     }
   },
   created() {
@@ -74,5 +117,6 @@ var app = new Vue({
     );
 
     this.newPtForm = this.newPtData();
+    this.newTriageForm = this.newTriageData();
   }
 })
