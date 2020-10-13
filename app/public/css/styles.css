@@ -159,3 +159,9 @@ footer{
   margin-top: 10px;
   left: 75%;
 }
+
+.login{
+  margin-right: auto;
+  margin-left: auto;
+  width: 300px;
+}
