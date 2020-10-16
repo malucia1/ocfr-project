@@ -23,7 +23,7 @@ var app = new Vue({
       });
     },
 
-    createComment() {
+    createMember() {
       fetch('api/ocfr/create.php', {
         method:'POST',
         body: JSON.stringify(this.newMember),

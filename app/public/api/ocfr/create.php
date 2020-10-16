@@ -12,12 +12,11 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO CurrentMembers (member_id,station_number,radio_number)
-  VALUES (?, ?, ?)'
+  'INSERT INTO CurrentMembers (station_number,radio_number)
+  VALUES (?, ?)'
 );
 
 $stmt->execute([
-  $_POST['member_id'],
   $_POST['station_number'],
   $_POST['radio_number']
 ]);
