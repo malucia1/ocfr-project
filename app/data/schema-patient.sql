@@ -16,14 +16,12 @@ CREATE TABLE CurrentMembers (
   gender VARCHAR(1),
   mobile_phone INT,
   work_phone INT,
-  position VARCHAR(30),
+  position VARCHAR(30)
 );
 
 INSERT INTO CurrentMembers (member_id, firstname, lastname, station_number, radio_number, address_street, address_city, address_state, address_zip, email, date_of_birth, gender, mobile_phone, work_phone, position) VALUES
-("SOME-REALLY-LONG-1234", "Sylvia", "Hernandez", "2012-09-01",  "F"),
-("SOME-REALLY-SHORT-5678", "Vish", "Balasubramanian", "1950-12-15",  "M"),
-("SOME-UNIQUE-ABCDE1", "J", "Doe", "1950-00-00",  ""),
-("SOME-DUMMY-DATA", "Pepper", "Potts", "1990-01-31",  "F");
+("1", "Samson", "Pollak", "1", "2", "3737 S 7th St", "Terre Haute", "IN", "47802", "spk@iu.edu", "1996-10-12", "Male", "123-234-4657", "435-654-6453", "Fireman"),
+("2", "Maddie", "Lucia", "2", "3", "1010 Indiana Ave", "Bloomington", "IN", "47408", "mal@iu.edu", "1996-08-14", "Female", "321-234-4657", "999-654-6453", "Lawyer");
 
 DROP TABLE IF EXISTS FormerMembers;
 CREATE TABLE FormerMembers (
@@ -52,20 +50,18 @@ INSERT INTO FormerMembers (member_id, firstname, lastname, station_number, radio
 
 DROP TABLE IF EXISTS Certification;
 CREATE TABLE Certification (
-  certification_id INT PRIMARY KEY,
-  member_id INT,
+  certification_id INT PRIMARY KEY AUTO_INCREMENT,
   certifying_agency VARCHAR(50),
   certification_name VARCHAR(50),
-  issue_date INT,
-  expiration_period INT,
-  FOREIGN KEY(member_id) REFERENCES person(member_id)
+  issue_date VARCHAR(50),
+  expiration_date VARCHAR(50)
 );
 
-INSERT INTO Certification (certification_id, member_id, certifying_agency, certification_name, issue_date, expiration_period) VALUES
-("SOME-REALLY-LONG-1234", "Sylvia", "Hernandez", "2012-09-01",  "F"),
-("SOME-REALLY-SHORT-5678", "Vish", "Balasubramanian", "1950-12-15",  "M"),
-("SOME-UNIQUE-ABCDE1", "J", "Doe", "1950-00-00",  ""),
-("SOME-DUMMY-DATA", "Pepper", "Potts", "1990-01-31",  "F");
+INSERT INTO Certification (certifying_agency, certification_name, issue_date, expiration_date) VALUES
+("Red Cross", "CPR", "2012-09-01",  "2022-09-01"),
+("Government", "Fireman", "2002-12-15",  "N/A"),
+("Boy Scouts", "Firemaking", "2005-01-01",  "N/A"),
+("NFFA", "Firefighting License", "1990-01-31",  "2020-01-31");
 
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (

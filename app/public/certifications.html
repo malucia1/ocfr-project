@@ -10,7 +10,7 @@
     <!-- my custom CSS goes here -->
     <link rel="stylesheet" href="css/styles.css">
 
-    <title>Former Members</title>
+    <title>Certifications</title>
   </head>
 
   <body>
@@ -40,39 +40,51 @@
       </div>
     </nav>
 
-
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
-            <h1>Former OCFR Members</h1>
-              <div class="table container">
-                <table id="sortTable member_table" class="table table-bordered table-striped table-hover table-condensed">
-                  <thead>
-                    <tr>
-                      <th class="col-xs-4">Member</th>
-                      <th class="col-xs-4">Station Number</th>
-                      <th class="col-xs-4" >Radio Number</th>
-                    </tr>
-                  </thead>
-                  <tbody class="itable">
-                    <tr>
-                      <td>Jane Foster</td>
-                      <td>85</td>
-                      <td>2601</td>
-                    <tr>
-                      <td>Fredrick Miller</td>
-                      <td>88</td>
-                      <td>2900</td>
-                    </tr>
-                    <tr>
-                      <td>Steve Rogers</td>
-                      <td>88</td>
-                      <td>2909</td>
-                    </tr>
-                  </tbody>
-                  </table>
-                </div>
-          </div>
-        </div>
+    <div id="cert" class="row">
+      <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+        <h1>Certifications</h1>
+          <div class="table container">
+            <table id="sortTable" class="table table-bordered table-striped table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th class="col-xs-4">Certification ID</th>
+                  <th class="col-xs-4">Certifying Agency</th>
+                  <th class="col-xs-4">Certification Name</th>
+                  <th class="col-xs-4">Issue Date</th>
+                  <th class="col-xs-4">Expiration Date</th>
+                </tr>
+              </thead>
+              <tbody v-for="c in certList" class="itable">
+                <tr>
+                  <td>{{ c.certification_id }}</td>
+                  <td>{{ c.certifying_agency }}</td>
+                  <td>{{ c.certification_name }}</td>
+                  <td>{{ c.issue_date }}</td>
+                  <td>{{ c.expiration_date }}</td>
+                </tr>
+              </tbody>
+              </table>
+                <form id="NewCertificationForm" v-on:submit.prevent="createCertification()">
+                  <div class="CertificationList">
+                    <label for="certifying_agency"> Certifying Agency </label>
+                    <input type="text" v-model="newCertification.certifying_agency" class="form-control">
+                    <label for="certification_name"> Certification Name </label>
+                    <input type="text" v-model="newCertification.certification_name" class="form-control">
+                    <label for="issue_date"> Issue Date </label>
+                    <input type="text" v-model="newCertification.issue_date" class="form-control">
+                    <label for="expiration_date"> Expiration Date </label>
+                    <input type="text" v-model="newCertification.expiration_date" class="form-control">
+                  </div><br/>
+                  <input type="submit" value="Create New Certification" class="button" id="submitNewCertification">
+                </form>
+            </div>
+      </div>
+    </div>
+    <!-- <div class="row" id="add_new_member_button">
+      <form>
+        <button>Add New Member</button>
+      </form>
+    </div> -->
 
     <footer> OCFR | Oconee County Fire Rescue | Oconee County, GA </footer>
     <!-- END content -->
@@ -84,8 +96,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/index.app.js"></script>
+    <script src="js/cert.app.js"></script>
   </body>
 </html>
