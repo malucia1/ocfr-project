@@ -16,14 +16,12 @@ CREATE TABLE CurrentMembers (
   gender VARCHAR(1),
   mobile_phone INT,
   work_phone INT,
-  position VARCHAR(30),
+  position VARCHAR(30)
 );
 
 INSERT INTO CurrentMembers (member_id, firstname, lastname, station_number, radio_number, address_street, address_city, address_state, address_zip, email, date_of_birth, gender, mobile_phone, work_phone, position) VALUES
-("SOME-REALLY-LONG-1234", "Sylvia", "Hernandez", "2012-09-01",  "F"),
-("SOME-REALLY-SHORT-5678", "Vish", "Balasubramanian", "1950-12-15",  "M"),
-("SOME-UNIQUE-ABCDE1", "J", "Doe", "1950-00-00",  ""),
-("SOME-DUMMY-DATA", "Pepper", "Potts", "1990-01-31",  "F");
+("1", "Samson", "Pollak", "1", "2", "3737 S 7th St", "Terre Haute", "IN", "47802", "spk@iu.edu", "1996-10-12", "Male", "123-234-4657", "435-654-6453", "Fireman"),
+("2", "Maddie", "Lucia", "2", "3", "1010 Indiana Ave", "Bloomington", "IN", "47408", "mal@iu.edu", "1996-08-14", "Female", "321-234-4657", "999-654-6453", "Lawyer");
 
 DROP TABLE IF EXISTS FormerMembers;
 CREATE TABLE FormerMembers (

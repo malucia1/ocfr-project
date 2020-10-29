@@ -47,24 +47,73 @@
             <table id="sortTable member_table" class="table table-bordered table-striped table-hover table-condensed">
               <thead>
                 <tr>
-                  <th class="col-xs-4">Member</th>
+                  <th class="col-xs-4">Member ID</th>
+                  <th class="col-xs-4">First Name</th>
+                  <th class="col-xs-4">Last Name</th>
                   <th class="col-xs-4">Station Number</th>
                   <th class="col-xs-4">Radio Number</th>
+                  <th class="col-xs-4">Street</th>
+                  <th class="col-xs-4">City</th>
+                  <th class="col-xs-4">State</th>
+                  <th class="col-xs-4">ZIP Code</th>
+                  <th class="col-xs-4">Email</th>
+                  <th class="col-xs-4">Birthday</th>
+                  <th class="col-xs-4">Gender</th>
+                  <th class="col-xs-4">Mobile Phone</th>
+                  <th class="col-xs-4">Work Phone</th>
+                  <th class="col-xs-4">Position</th>
+
                 </tr>
               </thead>
               <tbody v-for="m in memberList" class="itable">
                 <tr>
                   <td>{{ m.member_id }}</td>
+                  <td>{{ m.firstname }}</td>
+                  <td>{{ m.lastname }}</td>
                   <td>{{ m.station_number }}</td>
                   <td>{{ m.radio_number }}</td>
+                  <td>{{ m.address_street }}</td>
+                  <td>{{ m.address_city }}</td>
+                  <td>{{ m.address_state }}</td>
+                  <td>{{ m.address_zip }}</td>
+                  <td>{{ m.email }}</td>
+                  <td>{{ m.date_of_birth }}</td>
+                  <td>{{ m.gender }}</td>
+                  <td>{{ m.mobile_phone }}</td>
+                  <td>{{ m.work_phone }}</td>
+                  <td>{{ m.position }}</td>
                 </tr>
               </tbody>
               </table>
                 <form id="NewMemberForm" v-on:submit.prevent="createMember()">
                   <div class="MemberList">
+                    <label for="firstname"> First Name </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="lastname"> Last Name </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
                     <label for="stationNumber"> Station Number </label>
                     <input type="text" v-model="newMember.station_number" class="form-control">
                     <label for="radioNumber"> Radio Number </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="address_street"> Street </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="address_city"> City </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="address_state"> State </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="address_zip"> ZIP Code </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="email"> Email </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="date_of_birth"> Birthday </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="gender"> Gender </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="mobile_phone"> Mobile Phone </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="work_phone"> Work Phone </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="position"> Position </label>
                     <input type="text" v-model="newMember.radio_number" class="form-control">
                   </div><br/>
                   <input type="submit" value="Create New Member" class="button" id="submitNewMember">
