@@ -52,20 +52,18 @@ INSERT INTO FormerMembers (member_id, firstname, lastname, station_number, radio
 
 DROP TABLE IF EXISTS Certification;
 CREATE TABLE Certification (
-  certification_id INT PRIMARY KEY,
-  member_id INT,
+  certification_id INT PRIMARY KEY AUTO_INCREMENT,
   certifying_agency VARCHAR(50),
   certification_name VARCHAR(50),
-  issue_date INT,
-  expiration_period INT,
-  FOREIGN KEY(member_id) REFERENCES person(member_id)
+  issue_date VARCHAR(50),
+  expiration_date VARCHAR(50)
 );
 
-INSERT INTO Certification (certification_id, member_id, certifying_agency, certification_name, issue_date, expiration_period) VALUES
-("SOME-REALLY-LONG-1234", "Sylvia", "Hernandez", "2012-09-01",  "F"),
-("SOME-REALLY-SHORT-5678", "Vish", "Balasubramanian", "1950-12-15",  "M"),
-("SOME-UNIQUE-ABCDE1", "J", "Doe", "1950-00-00",  ""),
-("SOME-DUMMY-DATA", "Pepper", "Potts", "1990-01-31",  "F");
+INSERT INTO Certification (certifying_agency, certification_name, issue_date, expiration_date) VALUES
+("Red Cross", "CPR", "2012-09-01",  "2022-09-01"),
+("Government", "Fireman", "2002-12-15",  "N/A"),
+("Boy Scouts", "Firemaking", "2005-01-01",  "N/A"),
+("NFFA", "Firefighting License", "1990-01-31",  "2020-01-31");
 
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
