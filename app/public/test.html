@@ -33,88 +33,25 @@
       </div>
     </nav>
 
-    <div class="container-fluid">
-      <div class="row" id="triagePage">
-        <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
-          <form method="post" v-on:submit.prevent="handleNewPtForm">
-            <h3>Create New Patient Record</h3>
-
-            <div class="form-group">
-            <label for="newPtFirstName">First Name</label>
-            <input type="text" v-model="newPtForm.firstName" class="form-control" id="newPtFirstName" placeholder="Jane">
-          </div>
-          <div class="form-group">
-            <label for="newPtLastName">Last Name</label>
-            <input type="text" v-model="newPtForm.lastName" class="form-control" id="newPtLastName" placeholder="Doe">
-          </div>
-          <div class="form-group">
-            <label for="newPtDob">DOB</label>
-            <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="2020-01-02">
-          </div>
-          <div class="form-group">
-            <label for="newPtSexAtBirth">Sex at Birth</label>
-            <select class="form-control" v-model="newPtForm.sexAtBirth" id="newPtSexAtBirth">
-              <option value="M">Male</option>
-              <option value="F">Female</option>
-              <option value="O">Other/Unknown</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Create</button>
-
-          </form>
-
-          <h3>List of all patients</h3>
-
-          <div class="patientCard" v-for="pt in ptList" v-on:click="activePt = pt">
-            <span class="lastName">{{ pt.lastName }}</span>,
-            <span clas="firstName">{{ pt.firstName }}</span>
-            <span class="birthDate float-right">{{ pt.dob }}</span>
-          </div>
-
-          <!-- <button v-on:click="yell()">Click Me!</button> -->
-        </div>
-
-        <div class="col-6">
-          <h1>New Visit</h1>
-          <form v-on:submit.prevent="handleTriageForm">
-            <div class="form-group">
-              <label for="ptName">Patient Name</label>
-              <input class="form-control" id="ptName" v-bind:value="activePtName" readonly>
-
+    <div id="test" class="row">
+      <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+        <h1>Current OCFR Members</h1>
+          <div class="table container">
+            <table id="sortTable member_table" class="table table-bordered table-striped table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th class="col-xs-4">Test ID</th>
+                  <th class="col-xs-4">Test Agency</th>
+                </tr>
+              </thead>
+              <tbody v-for="t in testList" class="itable">
+                <tr>
+                  <td>{{ t.test_id }}</td>
+                  <td>{{ t.test_agency }}</td>
+                </tr>
+              </tbody>
+              </table>
             </div>
-
-          <div class="form-group">
-            <label for="visitDate">Visit Date</label>
-            <input type="text" class="form-control" id="visitDate" v-model="triageForm.visitDate" placeholder="">
-          </div>
-
-          <div class="form-group">
-            <label for="visitPriority">Priority</label>
-            <select class="form-control" id="visitPriority" v-model="triageForm.priority">
-              <option value="high">Critical</option>
-              <option value="medium">Urgent</option>
-              <option value="low">Non-urgent</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="visitSymptoms">Patient Symptoms</label>
-            <textarea class="form-control" id="visitSymptoms" rows="5" v-model="triageForm.visitDescription"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-
-        </form>
-        </div>
-        <div class="col cardPane cardPaneRight">
-          <h3>Waiting patients</h3>
-          <div v-for="visit in visitList" v-bind:class="'patientCard ' + priorityClass(visit.priority)" v-bind:data-patient_guid="visit.patientGuid" :data-visit_id="visit.visitId">
-            (<span class="lastName">{{ visit.sexAtBirth }}</span>
-            <span class="lastName">{{ age(visit.dob) }}</span>)
-            <span class="lastName">{{ visit.lastName }}</span>,
-            <span clas="firstName">{{ visit.firstName }}</span><br />
-            <span class="text-right">Arrived {{ dateSince(visit.visitDateUtc) }}</span>
-          </div>
-
-        </div>
       </div>
     </div>
     <!-- END content -->
@@ -130,6 +67,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/index.app.js"></script>
+    <script src="js/member.app.js"></script>
   </body>
 </html>
