@@ -6,7 +6,7 @@ var app = new Vue({
   },
 
   methods:{
-    fetchUser(){
+    fetchTest(){
       fetch('api/ocfr/')
       .then(response => response.json())
       .then(json => {
@@ -15,7 +15,7 @@ var app = new Vue({
       });
     },
 
-    createMember() {
+    createTest() {
       fetch('api/ocfr/test-create.php', {
         method:'POST',
         body: JSON.stringify(this.newTest),
@@ -33,7 +33,7 @@ var app = new Vue({
       console.log("Creating (POSTing)...!");
       console.log(this.newTest);
     },
-    newMemberData() {
+    newTestData() {
       return {
         test_id: "",
         test_agency: ""
@@ -42,6 +42,6 @@ var app = new Vue({
 
   },
   created() {
-    this.fetchUser();
+    this.fetchTest();
   }
 });
