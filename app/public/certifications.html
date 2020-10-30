@@ -50,8 +50,7 @@
                   <th class="col-xs-4">Certification ID</th>
                   <th class="col-xs-4">Certifying Agency</th>
                   <th class="col-xs-4">Certification Name</th>
-                  <th class="col-xs-4">Issue Date</th>
-                  <th class="col-xs-4">Expiration Date</th>
+                  <th class="col-xs-4">Expiration Period</th>
                 </tr>
               </thead>
               <tbody v-for="c in certList" class="itable">
@@ -59,8 +58,7 @@
                   <td>{{ c.certification_id }}</td>
                   <td>{{ c.certifying_agency }}</td>
                   <td>{{ c.certification_name }}</td>
-                  <td>{{ c.issue_date }}</td>
-                  <td>{{ c.expiration_date }}</td>
+                  <td>{{ c.expiration_period }}</td>
                 </tr>
               </tbody>
               </table>
@@ -70,10 +68,8 @@
                     <input type="text" v-model="newCertification.certifying_agency" class="form-control">
                     <label for="certification_name"> Certification Name </label>
                     <input type="text" v-model="newCertification.certification_name" class="form-control">
-                    <label for="issue_date"> Issue Date </label>
-                    <input type="text" v-model="newCertification.issue_date" class="form-control">
-                    <label for="expiration_date"> Expiration Date </label>
-                    <input type="text" v-model="newCertification.expiration_date" class="form-control">
+                    <label for="expiration_period"> Expiration Period </label>
+                    <input type="text" v-model="newCertification.expiration_period" class="form-control">
                   </div><br/>
                   <input type="submit" value="Create New Certification" class="button" id="submitNewCertification">
                 </form>
