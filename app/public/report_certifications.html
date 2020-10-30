@@ -40,17 +40,33 @@
       </div>
     </nav>
 
-    <div>
-      <ul>
-        <li>
-          <a href="report_certifications.html"> Certification Report </a>
-        </li>
-        <li>
-          <a href="report_members.html"> Members Report </a>
-        </li>
-      </ul>
+    <div id="members" class="row">
+      <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+        <h1>Certifications</h1>
+          <div class="table container">
+            <table id="sortTable" class="table table-bordered table-striped table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th class="col-xs-4">Member ID</th>
+                  <th class="col-xs-4">First Name</th>
+                  <th class="col-xs-4">Last Name</th>
+                  <th class="col-xs-4">Certification Name</th>
+                  <th class="col-xs-4">Certification ID</th>
+                </tr>
+              </thead>
+              <tbody v-for="m in memberList" class="itable">
+                <tr>
+                  <td>{{ m.member_id }}</td>
+                  <td>{{ m.firstname }}</td>
+                  <td>{{ m.lastname }}</td>
+                  <!-- <td>{{ c.certification_name }}</td>
+                  <td>{{ c.certification_id }}</td> -->
+                </tr>
+              </tbody>
+              </table>
+            </div>
+      </div>
     </div>
-
 
     <footer> OCFR | Oconee County Fire Rescue | Oconee County, GA </footer>
     <!-- END content -->
@@ -64,6 +80,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/index.app.js"></script>
+    <script src="js/member.app.js"></script>
+    <!-- <script src="js/cert.app.js"></script> -->
   </body>
 </html>

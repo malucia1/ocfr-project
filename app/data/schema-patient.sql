@@ -53,15 +53,15 @@ CREATE TABLE Certification (
   certification_id INT PRIMARY KEY AUTO_INCREMENT,
   certifying_agency VARCHAR(50),
   certification_name VARCHAR(50),
-  issue_date VARCHAR(50),
-  expiration_date VARCHAR(50)
+  expiration_period VARCHAR(50)
 );
 
-INSERT INTO Certification (certifying_agency, certification_name, issue_date, expiration_date) VALUES
-("Red Cross", "CPR", "2012-09-01",  "2022-09-01"),
-("Government", "Fireman", "2002-12-15",  "N/A"),
-("Boy Scouts", "Firemaking", "2005-01-01",  "N/A"),
-("NFFA", "Firefighting License", "1990-01-31",  "2020-01-31");
+INSERT INTO Certification (certifying_agency, certification_name, expiration_period) VALUES
+("AHA", "CPR", "2 years"),
+("Red Cross", "CPR", "2 years"),
+("Athens Technical College", "Firefighter I", "3 years"),
+("Ivy Technical College", "Firefighter I", "3 years"),
+("Georgia POST Academy", "POST", "5 years");
 
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
