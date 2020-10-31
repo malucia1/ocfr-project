@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- my custom CSS goes here -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Certifications</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md">
+      <a class="navbar-brand" id="home-header2" href="home.html">OCFR</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="current_members.html">Current Members</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="former_members.html">Former Members</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="certifications.html">Certifications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="generate_report.html">Reports</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="cert" class="row">
+      <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+        <h1>Certifications</h1>
+          <div class="table container">
+            <table id="sortTable" class="table table-bordered table-striped table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th class="col-xs-4">Certification ID</th>
+                  <th class="col-xs-4">Certifying Agency</th>
+                  <th class="col-xs-4">Certification Name</th>
+                  <th class="col-xs-4">Expiration Period</th>
+                </tr>
+              </thead>
+              <tbody v-for="c in certList" class="itable">
+                <tr>
+                  <td>{{ c.certification_id }}</td>
+                  <td>{{ c.certifying_agency }}</td>
+                  <td>{{ c.certification_name }}</td>
+                  <td>{{ c.expiration_period }}</td>
+                </tr>
+              </tbody>
+              </table>
+                <form id="NewCertificationForm" v-on:submit.prevent="createCertification()">
+                  <div class="CertificationList">
+                    <label for="certifying_agency"> Certifying Agency </label>
+                    <input type="text" v-model="newCertification.certifying_agency" class="form-control">
+                    <label for="certification_name"> Certification Name </label>
+                    <input type="text" v-model="newCertification.certification_name" class="form-control">
+                    <label for="expiration_period"> Expiration Period </label>
+                    <input type="text" v-model="newCertification.expiration_period" class="form-control">
+                  </div><br/>
+                  <input type="submit" value="Create New Certification" class="button" id="submitNewCertification">
+                </form>
+            </div>
+      </div>
+    </div>
+    <!-- <div class="row" id="add_new_member_button">
+      <form>
+        <button>Add New Member</button>
+      </form>
+    </div> -->
+
+    <footer> OCFR | Oconee County Fire Rescue | Oconee County, GA </footer>
+    <!-- END content -->
+
+    <!-- Footer? Insert here -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/cert.app.js"></script>
+  </body>
+</html>

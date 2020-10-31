@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- my custom CSS goes here -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Current Members</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md">
+      <a class="navbar-brand" id="home-header2" href="home.html">OCFR</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="current_members.html">Current Members</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="former_members.html">Former Members</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="certifications.html">Certifications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="generate_report.html">Reports</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="members" class="row">
+      <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+        <h1>Current OCFR Members</h1>
+          <div class="table container">
+            <table id="sortTable member_table" class="table table-bordered table-striped table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th class="col-xs-4">Member ID</th>
+                  <th class="col-xs-4">First Name</th>
+                  <th class="col-xs-4">Last Name</th>
+                  <th class="col-xs-4">Station Number</th>
+                  <th class="col-xs-4">Radio Number</th>
+                  <th class="col-xs-4">Street</th>
+                  <th class="col-xs-4">City</th>
+                  <th class="col-xs-4">State</th>
+                  <th class="col-xs-4">ZIP Code</th>
+                  <th class="col-xs-4">Email</th>
+                  <th class="col-xs-4">Birthday</th>
+                  <th class="col-xs-4">Gender</th>
+                  <th class="col-xs-4">Mobile Phone</th>
+                  <th class="col-xs-4">Work Phone</th>
+                  <th class="col-xs-4">Position</th>
+                  <th class="col-xs-4">View Member</th>
+                </tr>
+              </thead>
+              <tbody v-for="m in memberList" class="itable">
+                <tr>
+                  <td>{{ m.member_id }}</td>
+                  <td>{{ m.firstname }}</td>
+                  <td>{{ m.lastname }}</td>
+                  <td>{{ m.station_number }}</td>
+                  <td>{{ m.radio_number }}</td>
+                  <td>{{ m.address_street }}</td>
+                  <td>{{ m.address_city }}</td>
+                  <td>{{ m.address_state }}</td>
+                  <td>{{ m.address_zip }}</td>
+                  <td>{{ m.email }}</td>
+                  <td>{{ m.date_of_birth }}</td>
+                  <td>{{ m.gender }}</td>
+                  <td>{{ m.mobile_phone }}</td>
+                  <td>{{ m.work_phone }}</td>
+                  <td>{{ m.position }}</td>
+                  <td><a v-bind:href="'ge'+member_id">Details</a></td>
+                </tr>
+              </tbody>
+              </table>
+                <form id="NewMemberForm" v-on:submit.prevent="createMember()">
+                  <div class="MemberList">
+                    <label for="firstname"> First Name </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="lastname"> Last Name </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="stationNumber"> Station Number </label>
+                    <input type="text" v-model="newMember.station_number" class="form-control">
+                    <label for="radioNumber"> Radio Number </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="address_street"> Street </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="address_city"> City </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="address_state"> State </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="address_zip"> ZIP Code </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="email"> Email </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="date_of_birth"> Birthday </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="gender"> Gender </label>
+                    <!-- <select name="gender" id="gender" class="form-control">
+                      <option></option>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select> -->
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="mobile_phone"> Mobile Phone </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="work_phone"> Work Phone </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                    <label for="position"> Position </label>
+                    <input type="text" v-model="newMember.radio_number" class="form-control">
+                  </div><br/>
+                  <input type="submit" value="Create New Member" class="button" id="submitNewMember">
+                </form>
+            </div>
+      </div>
+    </div>
+    
+    <!-- <div class="row" id="add_new_member_button">
+      <form>
+        <button>Add New Member</button>
+      </form>
+    </div> -->
+
+
+    <footer> OCFR | Oconee County Fire Rescue | Oconee County, GA </footer>
+    <!-- END content -->
+
+    <!-- Footer? Insert here -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/member.app.js"></script>
+  </body>
+</html>
