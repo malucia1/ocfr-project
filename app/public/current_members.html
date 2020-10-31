@@ -62,7 +62,7 @@
                   <th class="col-xs-4">Mobile Phone</th>
                   <th class="col-xs-4">Work Phone</th>
                   <th class="col-xs-4">Position</th>
-
+                  <th class="col-xs-4">View Member</th>
                 </tr>
               </thead>
               <tbody v-for="m in memberList" class="itable">
@@ -82,6 +82,7 @@
                   <td>{{ m.mobile_phone }}</td>
                   <td>{{ m.work_phone }}</td>
                   <td>{{ m.position }}</td>
+                  <td><a v-bind:href="'ge'+member_id">Details</a></td>
                 </tr>
               </tbody>
               </table>
