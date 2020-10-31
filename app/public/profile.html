@@ -37,60 +37,57 @@
       </div>
     </nav>
 
-    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 profile">
-        <div class="row">
+    <div class="container-fluid">
+        <!-- <div class="row">
         <a id="profile_pic">
           <img v-bind:src="userThumbnail" width=128px; height=128px>
         </a>
-        <h2 id="profile_name">Harold Potter</h2>
-        </div>
+        
+        </div> -->
 
-        <div id="profile_info">
-          <h4>Position: </h4><br>
-          <h4>Gender: </h4><br>
-          <h4>DoB: </h4><br>
-          <h4>Address: </h4><br>
-          <h4>Email: </h4><br>
-          <h4>Mobile Phone: </h4><br>
-          <h4>Work Phone: </h4><br>
-          <br><br>
-          <form id="update_profile_button">
+        <div id="member">
+          <div v-for='i in memberData'>
+          <h2>{{i.firstname}} {{i.lastname}}</h2>
+          <h4>Position: {{ i.position }}</h4><br>
+          <h4>Gender: {{i.gender}}</h4><br>
+          <h4>DoB: {{i.date_of_birth}}</h4><br>
+          <h4>Address: {{i.address_street}}</h4><br>
+          <h4>Email: {{i.email}}</h4><br>
+          <h4>Mobile Phone: {{i.mobile_phone}}</h4><br>
+          <h4>Work Phone: {{i.work_phone}}</h4><br>
+          </div>
+
+          <div class="table">
+            <table id="sortTable" class="table table-bordered table-striped table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th class="col-xs-4">Certification Name</th>
+                  <th class="col-xs-4">Certification Agency</th>
+                  <th class="col-xs-4">Issued Date</th>
+                  <th class="col-xs-4">Expiration Period</th>
+                </tr>
+              </thead>
+              <tbody class="itable" v-for='i in memberCert'>
+                
+                <tr>
+                  <td>{{i.certification_name}}</td>
+                  <td>{{i.certifying_agency}}</td>
+                  <td>{{i.issued_date}}</td>
+                  <td>{{i.expiration_period}}</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <!-- <form id="update_profile_button">
             <button>Update Profile</button>
-          </form>
+          </form> -->
         </div>
-      </div>
-
-
-            <div class="table container" id="cert_table">
-              <table id="sortTable member_table" class="table table-bordered table-striped table-hover table-condensed">
-                <thead>
-                  <tr>
-                    <th class="col-xs-4">Certification Name</th>
-                    <th class="col-xs-4">Certification Agency</th>
-                    <th class="col-xs-4" >Issued Date</th>
-                    <th class="col-xs-4" >Expiration Period</th>
-                  </tr>
-                </thead>
-                <tbody class="itable">
-                  <tr>
-                    <td>Fire Detection Certification</td>
-                    <td>Fire Certified LLC</td>
-                    <td>09/22/2018</td>
-                    <td>09/22/2021</td>
-                  <tr>
-                    <td>CPR/AED</td>
-                    <td>American Red Cross</td>
-                    <td>01/08/2020</td>
-                    <td>01/08/2022</td>
-                  </tr>
-                </tbody>
-                </table>
-              </div>
+      
 
       <!-- Regenerate Random User By Button -->
       <!-- <button v-on:click="regenerate()">New User</button> -->
     </div>
-
     <footer> OCFR | Oconee County Fire Rescue | Oconee County, GA </footer>
     <!-- END content -->
 
@@ -103,6 +100,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/index.app.js"></script>
+    <script src="js/memberDetail.app.js"></script>
   </body>
 </html>
