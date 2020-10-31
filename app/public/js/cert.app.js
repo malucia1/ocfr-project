@@ -1,24 +1,12 @@
 var app = new Vue({
   el: '#cert',
   data: {
-    certList: [{
-      certification_id: '',
-      certifying_agency: '',
-      certification_name: '',
-      issue_date: '',
-      expiration_date: ''
-    }],
-    newCertification: {
-      certification_id: '',
-      certifying_agency: '',
-      certification_name: '',
-      issue_date: '',
-      expiration_date: ''
-    }
+    certList: [],
+    newCertification: []
   },
 
   methods:{
-    fetchUser(){
+    fetchCert(){
       fetch('api/ocfr/')
       .then(response => response.json())
       .then(json => {
@@ -39,7 +27,7 @@ var app = new Vue({
       .then( json => {
         console.log("Returned from post:", json);
         this.certList = json;
-        this.newCertification = this.newCerticationData();
+        this.newCertification = this.newCertificationData();
       });
 
       console.log("Creating (POSTing)...!");
@@ -50,13 +38,12 @@ var app = new Vue({
         certification_id: '',
         certifying_agency: '',
         certification_name: '',
-        issue_date: '',
-        expiration_date: ''
+        expiration_period: ''
       }
     }
 
   },
   created() {
-    this.fetchUser();
+    this.fetchCert();
   }
 });
