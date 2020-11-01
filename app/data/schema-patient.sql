@@ -53,10 +53,10 @@ INSERT INTO CurrentMembers (firstname, lastname, date_of_birth, gender, isActive
 
 DROP TABLE IF EXISTS Certification;
 CREATE TABLE Certification (
-  certification_id INT PRIMARY KEY AUTO_INCREMENT,
-  certifying_agency VARCHAR(50),
-  certification_name VARCHAR(50),
-  expiration_period VARCHAR(50)
+  certification_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  certifying_agency VARCHAR(50) NOT NULL,
+  certification_name VARCHAR(50) NOT NULL,
+  expiration_period int NOT NULL
 );
 
 INSERT INTO Certification (certifying_agency, certification_name, expiration_period) VALUES
