@@ -1,5 +1,5 @@
 var app = new Vue({
-  el: '#member',
+  el: '#memberDetail',
   data: {
     memberCert:[],
     memberData:[]
@@ -8,7 +8,7 @@ var app = new Vue({
   methods:{
 
     getMemberCert(){
-      fetch('api/ocfr/get-memberCert.php')
+      fetch('api/memberDetail/get-memberCert.php')
         .then(response => response.json())
         .then(json => {
           this.memberCert=json;
@@ -17,7 +17,7 @@ var app = new Vue({
       },
 
     getMember(){
-      fetch('api/ocfr/get-member.php')
+      fetch('api/memberDetail/')
       .then(function(response) {return response.json()})
       .then(json => {
         this.memberData=json;
