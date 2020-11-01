@@ -10,7 +10,7 @@
     <!-- my custom CSS goes here -->
     <link rel="stylesheet" href="css/styles.css">
 
-    <title>aha_cpr</title>
+    <title>red_cross_cpr</title>
   </head>
 
   <body>
@@ -40,9 +40,9 @@
       </div>
     </nav>
 
-    <div id="members" class="row">
+    <div id="memberCertification" class="row">
       <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
-        <h1>AHA CPR Certification</h1>
+        <h1>Red Cross CPR Certification</h1>
         <p>Description of Certification Here.</p>
           <div class="table container">
             <table id="sortTable member_table" class="table table-bordered table-striped table-hover table-condensed">
@@ -52,7 +52,7 @@
                   <th class="col-xs-4">Email</th>
                 </tr>
               </thead>
-              <tbody v-for="m in memberList" class="itable">
+              <tbody v-for="m in memberInfo" class="itable">
                 <tr>
                   <td>{{ m.lastname + ", " + m.firstname }}</td>
                   <td>{{ m.email }}</td>
@@ -81,7 +81,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/member.app.js"></script>
-    <script src="js/cert.app.js"></script>
+
+    <script src="js/certDetailAHA.app.js"></script>
   </body>
 </html>
