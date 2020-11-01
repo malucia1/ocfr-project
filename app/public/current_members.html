@@ -99,9 +99,9 @@
               <label for="lastname"> Last Name </label>
               <input type="text" v-model="newMember.lastname" class="form-control">
               <label for="stationNumber"> Station Number </label>
-              <input type="text" v-model="newMember.station_number" class="form-control" required>
+              <input type="number" v-model="newMember.station_number" class="form-control" required>
               <label for="radioNumber"> Radio Number </label>
-              <input type="text" v-model="newMember.radio_number" class="form-control" required>
+              <input type="number" v-model="newMember.radio_number" class="form-control" required>
               <label for="address_street"> Street </label>
               <input type="text" v-model="newMember.address_street" class="form-control">
               <label for="address_city"> City </label>
@@ -111,9 +111,9 @@
               <label for="address_zip"> ZIP Code </label>
               <input type="text" v-model="newMember.address_zip" class="form-control">
               <label for="email"> Email </label>
-              <input type="text" v-model="newMember.email" class="form-control" required>
+              <input type="email" v-model="newMember.email" class="form-control" required>
               <label for="date_of_birth"> Birthday </label>
-              <input type="text" v-model="newMember.date_of_birth" class="form-control">
+              <input type="date" v-model="newMember.date_of_birth" class="form-control">
               <p>Select Gender:</p>
               <label for="male"> Male </label>
               <input type="radio" name="gender" id="male" v-model="newMember.gender" value="M" required>

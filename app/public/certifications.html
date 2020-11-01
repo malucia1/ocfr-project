@@ -50,7 +50,7 @@
                   <th>Certification ID</th>
                   <th>Certifying Agency</th>
                   <th>Certification Name</th>
-                  <th>Expiration Period</th>
+                  <th>Expiration Period (Year)</th>
                 </tr>
               </thead>
               <tbody v-for="c in certList" class="itable">
@@ -65,11 +65,11 @@
                 <form id="NewCertificationForm" v-on:submit.prevent="createCertification()">
                   <div class="CertificationList">
                     <label for="certifying_agency"> Certifying Agency </label>
-                    <input type="text" v-model="newCertification.certifying_agency" class="form-control">
+                    <input type="text" v-model="newCertification.certifying_agency" class="form-control" required>
                     <label for="certification_name"> Certification Name </label>
-                    <input type="text" v-model="newCertification.certification_name" class="form-control">
-                    <label for="expiration_period"> Expiration Period </label>
-                    <input type="text" v-model="newCertification.expiration_period" class="form-control">
+                    <input type="text" v-model="newCertification.certification_name" class="form-control" required>
+                    <label for="expiration_period"> Expiration Period (Year)</label>
+                    <input type="number" v-model="newCertification.expiration_period" class="form-control" required>
                   </div><br/>
                   <input type="submit" value="Create New Certification" class="button" id="submitNewCertification">
                 </form>
