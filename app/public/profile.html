@@ -37,7 +37,7 @@
       </div>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container" id="memberDetail">
         <!-- <div class="row">
         <a id="profile_pic">
           <img v-bind:src="userThumbnail" width=128px; height=128px>
@@ -45,54 +45,55 @@
         
         </div> -->
 
-        <div id="member">
-          <div v-for='i in memberData'>
-          <h2>{{i.firstname}} {{i.lastname}}</h2>
-          <h4>Position: {{ i.position }}</h4><br>
-          <h4>Gender: {{i.gender}}</h4><br>
-          <h4>DoB: {{i.date_of_birth}}</h4><br>
-          <h4>Address: {{i.address_street}}</h4><br>
-          <h4>Email: {{i.email}}</h4><br>
-          <h4>Mobile Phone: {{i.mobile_phone}}</h4><br>
-          <h4>Work Phone: {{i.work_phone}}</h4><br>
-          </div>
 
-          <div class="table">
-            <table id="sortTable" class="table table-bordered table-striped table-hover table-condensed">
-              <thead>
-                <tr>
-                  <th class="col-xs-4">Certification Name</th>
-                  <th class="col-xs-4">Certification Agency</th>
-                  <th class="col-xs-4">Issued Date</th>
-                  <th class="col-xs-4">Expiration Period</th>
-                </tr>
-              </thead>
-              <tbody class="itable" v-for='i in memberCert'>
-                
-                <tr>
-                  <td>{{i.certification_name}}</td>
-                  <td>{{i.certifying_agency}}</td>
-                  <td>{{i.issued_date}}</td>
-                  <td>{{i.expiration_period}}</td>
-                </tr>
 
-              </tbody>
-            </table>
-          </div>
+      <div v-for='i in memberData'>
+      <h2>{{i.firstname}} {{i.lastname}}</h2>
+      <h5>Position: {{ i.position }}</h5><br>
+      <h5>Gender: {{i.gender}}</h5><br>
+      <h5>DoB: {{i.date_of_birth}}</h5><br>
+      <h5>Address: {{i.address_street}}</h5><br>
+      <h5>Email: {{i.email}}</h5><br>
+      <h5>Mobile Phone: {{i.mobile_phone}}</h5><br>
+      <h5>Work Phone: {{i.work_phone}}</h5><br>
+
+
+      <div class="table">
+        <table id="sortTable" class="table table-bordered table-striped table-hover table-condensed">
+          <thead>
+            <tr>
+              <th class="col-xs-4">Certification Name</th>
+              <th class="col-xs-4">Certification Agency</th>
+              <th class="col-xs-4">Issued Date</th>
+              <th class="col-xs-4">Expiration Period</th>
+            </tr>
+          </thead>
+          <tbody class="itable" v-for='i in memberCert'>
+            
+            <tr>
+              <td>{{i.certification_name}}</td>
+              <td>{{i.certifying_agency}}</td>
+              <td>{{i.issued_date}}</td>
+              <td>{{i.expiration_period}}</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
           <!-- <form id="update_profile_button">
             <button>Update Profile</button>
           </form> -->
-        </div>
+    </div>
       
 
       <!-- Regenerate Random User By Button -->
       <!-- <button v-on:click="regenerate()">New User</button> -->
-    </div>
-    <footer> OCFR | Oconee County Fire Rescue | Oconee County, GA </footer>
+  </div>
+  
     <!-- END content -->
 
     <!-- Footer? Insert here -->
-
+    <footer> OCFR | Oconee County Fire Rescue | Oconee County, GA </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

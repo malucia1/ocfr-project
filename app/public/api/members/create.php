@@ -12,8 +12,8 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO CurrentMembers (firstname,lastname,station_number,radio_number,address_street,address_city,address_state,address_zip,email,date_of_birth,gender,mobile_phone,work_phone,position)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+  'INSERT INTO CurrentMembers (firstname,lastname,station_number,radio_number,address_street,address_city,address_state,address_zip,email,date_of_birth,gender,mobile_phone,work_phone,position,isActive)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
 );
 
 $stmt->execute([
@@ -30,7 +30,8 @@ $stmt->execute([
   $_POST['gender'],
   $_POST['mobile_phone'],
   $_POST['work_phone'],
-  $_POST['position']
+  $_POST['position'],
+  $_POST['isActive']
 ]);
 
 // If needed, get auto-generated PK from DB
@@ -40,4 +41,4 @@ $stmt->execute([
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../ocfr/');
+header('Location: ../members/');
