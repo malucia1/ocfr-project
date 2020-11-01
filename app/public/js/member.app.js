@@ -36,7 +36,7 @@ var app = new Vue({
     },
 
     // fetchCert(){
-    //   fetch('api/member/')
+    //   fetch('api/members/')
     //   .then(response => response.json())
     //   .then(json => {
     //     this.certList=json;
