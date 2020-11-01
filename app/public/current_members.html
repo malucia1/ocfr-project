@@ -40,106 +40,113 @@
       </div>
     </nav>
 
-    <div id="members" class="row">
-      <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
-        <h1>Current OCFR Members</h1>
-          <div class="table container">
-            <table id="sortTable member_table" class="table table-bordered table-striped table-hover table-condensed">
-              <thead>
-                <tr>
-                  <th class="col-xs-4">Member ID</th>
-                  <th class="col-xs-4">First Name</th>
-                  <th class="col-xs-4">Last Name</th>
-                  <th class="col-xs-4">Station Number</th>
-                  <th class="col-xs-4">Radio Number</th>
-                  <th class="col-xs-4">Street</th>
-                  <th class="col-xs-4">City</th>
-                  <th class="col-xs-4">State</th>
-                  <th class="col-xs-4">ZIP Code</th>
-                  <th class="col-xs-4">Email</th>
-                  <th class="col-xs-4">Birthday</th>
-                  <th class="col-xs-4">Gender</th>
-                  <th class="col-xs-4">Mobile Phone</th>
-                  <th class="col-xs-4">Work Phone</th>
-                  <th class="col-xs-4">Position</th>
-                  <th class="col-xs-4">View Member</th>
-                </tr>
-              </thead>
-              <tbody v-for="m in memberList" class="itable">
-                <tr>
-                  <td>{{ m.member_id }}</td>
-                  <td>{{ m.firstname }}</td>
-                  <td>{{ m.lastname }}</td>
-                  <td>{{ m.station_number }}</td>
-                  <td>{{ m.radio_number }}</td>
-                  <td>{{ m.address_street }}</td>
-                  <td>{{ m.address_city }}</td>
-                  <td>{{ m.address_state }}</td>
-                  <td>{{ m.address_zip }}</td>
-                  <td>{{ m.email }}</td>
-                  <td>{{ m.date_of_birth }}</td>
-                  <td>{{ m.gender }}</td>
-                  <td>{{ m.mobile_phone }}</td>
-                  <td>{{ m.work_phone }}</td>
-                  <td>{{ m.position }}</td>
-                  <td><a v-bind:href="'ge'+member_id">Details</a></td>
-                </tr>
-              </tbody>
-              </table>
-                <form id="NewMemberForm" v-on:submit.prevent="createMember()">
-                  <div class="MemberList">
-                    <label for="firstname"> First Name </label>
-                    <input type="text" v-model="newMember.radio_number" class="form-control">
-                    <label for="lastname"> Last Name </label>
-                    <input type="text" v-model="newMember.radio_number" class="form-control">
-                    <label for="stationNumber"> Station Number </label>
-                    <input type="text" v-model="newMember.station_number" class="form-control">
-                    <label for="radioNumber"> Radio Number </label>
-                    <input type="text" v-model="newMember.radio_number" class="form-control">
-                    <label for="address_street"> Street </label>
-                    <input type="text" v-model="newMember.radio_number" class="form-control">
-                    <label for="address_city"> City </label>
-                    <input type="text" v-model="newMember.radio_number" class="form-control">
-                    <label for="address_state"> State </label>
-                    <input type="text" v-model="newMember.radio_number" class="form-control">
-                    <label for="address_zip"> ZIP Code </label>
-                    <input type="text" v-model="newMember.radio_number" class="form-control">
-                    <label for="email"> Email </label>
-                    <input type="text" v-model="newMember.radio_number" class="form-control">
-                    <label for="date_of_birth"> Birthday </label>
-                    <input type="text" v-model="newMember.radio_number" class="form-control">
-                    <label for="gender"> Gender </label>
-                    <!-- <select name="gender" id="gender" class="form-control">
-                      <option></option>
-                      <option>Male</option>
-                      <option>Female</option>
-                    </select> -->
-                    <input type="text" v-model="newMember.radio_number" class="form-control">
-                    <label for="mobile_phone"> Mobile Phone </label>
-                    <input type="text" v-model="newMember.radio_number" class="form-control">
-                    <label for="work_phone"> Work Phone </label>
-                    <input type="text" v-model="newMember.radio_number" class="form-control">
-                    <label for="position"> Position </label>
-                    <input type="text" v-model="newMember.radio_number" class="form-control">
-                  </div><br/>
-                  <input type="submit" value="Create New Member" class="button" id="submitNewMember">
-                </form>
+    <div class="container-fluid">
+      <h1>OCFR Members</h1>
+        <div id="members">          
+          <form id="getMemberById" action="api/memberDetail/storeId.php" method="POST">
+          <table id="sortTable member_table" class="table table-bordered table-striped table-hover table-condensed">
+            <thead>
+              <tr>
+                <th>View Member</th>
+                <th>Member ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Station Number</th>
+                <th>Radio Number</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+                <th>ZIP Code</th>
+                <th>Email</th>
+                <th>Birthday</th>
+                <th>Gender</th>
+                <th>Mobile Phone</th>
+                <th>Work Phone</th>
+                <th>Position</th>
+                <th>Active</th>
+              </tr>
+            </thead>
+            <tbody v-for="m in memberList" class="itable">
+              <tr>
+                <td><input type="radio" v-bind:value="m.member_id" name="getId" required></td>
+                <td>{{ m.member_id }}</td>
+                <td>{{ m.firstname }}</td>
+                <td>{{ m.lastname }}</td>
+                <td>{{ m.station_number }}</td>
+                <td>{{ m.radio_number }}</td>
+                <td>{{ m.address_street }}</td>
+                <td>{{ m.address_city }}</td>
+                <td>{{ m.address_state }}</td>
+                <td>{{ m.address_zip }}</td>
+                <td>{{ m.email }}</td>
+                <td>{{ m.date_of_birth }}</td>
+                <td>{{ m.gender }}</td>
+                <td>{{ m.mobile_phone }}</td>
+                <td>{{ m.work_phone }}</td>
+                <td>{{ m.position }}</td>
+                <td v-if='m.isActive >0'>True</td>
+                <td v-else>False</td>
+              </tr>
+            </tbody>
+            </table>
+            <input type="submit" class="button" value="View member">
+          </form>
+
+          <form id="NewMemberForm" v-on:submit.prevent="createMember()">
+            <div class="MemberList">
+              <label for="firstname"> First Name </label>
+              <input type="text" v-model="newMember.firstname" class="form-control">
+              <label for="lastname"> Last Name </label>
+              <input type="text" v-model="newMember.lastname" class="form-control">
+              <label for="stationNumber"> Station Number </label>
+              <input type="text" v-model="newMember.station_number" class="form-control" required>
+              <label for="radioNumber"> Radio Number </label>
+              <input type="text" v-model="newMember.radio_number" class="form-control" required>
+              <label for="address_street"> Street </label>
+              <input type="text" v-model="newMember.address_street" class="form-control">
+              <label for="address_city"> City </label>
+              <input type="text" v-model="newMember.address_city" class="form-control">
+              <label for="address_state"> State </label>
+              <input type="text" v-model="newMember.address_state" class="form-control">
+              <label for="address_zip"> ZIP Code </label>
+              <input type="text" v-model="newMember.address_zip" class="form-control">
+              <label for="email"> Email </label>
+              <input type="text" v-model="newMember.email" class="form-control" required>
+              <label for="date_of_birth"> Birthday </label>
+              <input type="text" v-model="newMember.date_of_birth" class="form-control">
+              <p>Select Gender:</p>
+              <label for="male"> Male </label>
+              <input type="radio" name="gender" id="male" v-model="newMember.gender" value="M" required>
+
+              <label for="female"> Female </label>
+              <input type="radio" name="gender" id="female" v-model="newMember.gender" value="F" required><br>
+
+              <label for="mobile_phone"> Mobile Phone </label>
+              <input type="text" v-model="newMember.mobile_phone" class="form-control">
+              <label for="work_phone"> Work Phone </label>
+              <input type="text" v-model="newMember.work_phone" class="form-control">
+              <label for="position"> Position </label>
+              <input type="text" v-model="newMember.position" class="form-control">
+
+              <p>Is active?</p>
+              <label for="true"> True </label>
+              <input type="radio" name="isActive" id="true" v-model="newMember.isActive" value=1 required>
+              <label for="false"> False </label>
+              <input type="radio" name="isActive" id="false" v-model="newMember.isActive" value=0 required><br>
+
+              <input type="submit" class="button" value="Create New Member">
             </div>
-      </div>
-    </div>
+            
+          </form>
     
-    <!-- <div class="row" id="add_new_member_button">
-      <form>
-        <button>Add New Member</button>
-      </form>
-    </div> -->
-
-
-    <footer> OCFR | Oconee County Fire Rescue | Oconee County, GA </footer>
+        </div>
+      </div>
+    
+    
     <!-- END content -->
 
     <!-- Footer? Insert here -->
-
+    <footer> OCFR | Oconee County Fire Rescue | Oconee County, GA </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

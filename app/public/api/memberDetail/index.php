@@ -5,18 +5,15 @@ require 'common.php';
 // Step 1: Get a datase connection from our helper class
 $db = DbConnection::getConnection();
 
-// Step 2: Create & run the query
-$sql = 'SELECT * FROM CurrentMembers WHERE member_id = 1';
-$vars = [];
 
-// if (isset($_GET['member_id'])) {
-//   // This is an example of a parameterized query
-//   $sql = 'SELECT * FROM CurrentMembers WHERE member_id = ?';
-//   $vars = [ $_GET['member_id'] ];
-// }
+$getId = file_get_contents("data_en.json");
+
+// Step 2: Create & run the query
+$sql = 'SELECT * FROM CurrentMembers WHERE member_id = ?';
 
 $stmt = $db->prepare($sql);
-$stmt->execute($vars);
+
+$stmt->execute([$getId]);
 
 $members = $stmt->fetchAll();
 

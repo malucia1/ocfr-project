@@ -6,13 +6,13 @@ CREATE TABLE CurrentMembers (
   member_id INTEGER PRIMARY KEY AUTO_INCREMENT,
   firstname VARCHAR(30) NOT NULL,
   lastname VARCHAR(30) NOT NULL,
-  station_number INT,
-  radio_number INT,
+  station_number INT Not NULL,
+  radio_number INT Not NULL,
   address_street VARCHAR(50),
   address_city VARCHAR(50),
   address_state VARCHAR(50),
   address_zip INT,
-  email VARCHAR(30),
+  email VARCHAR(30) Not NULL,
   date_of_birth date,
   gender VARCHAR(1) CHECK (gender in ('M','F')),
   mobile_phone INT,
@@ -53,10 +53,10 @@ INSERT INTO CurrentMembers (firstname, lastname, date_of_birth, gender, isActive
 
 DROP TABLE IF EXISTS Certification;
 CREATE TABLE Certification (
-  certification_id INT PRIMARY KEY AUTO_INCREMENT,
-  certifying_agency VARCHAR(50),
-  certification_name VARCHAR(50),
-  expiration_period VARCHAR(50)
+  certification_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  certifying_agency VARCHAR(50) NOT NULL,
+  certification_name VARCHAR(50) NOT NULL,
+  expiration_period int NOT NULL
 );
 
 INSERT INTO Certification (certifying_agency, certification_name, expiration_period) VALUES
