@@ -10,7 +10,7 @@
     <!-- my custom CSS goes here -->
     <link rel="stylesheet" href="css/styles.css">
 
-    <title>Profile Page</title>
+    <title>red_cross_cpr</title>
   </head>
 
   <body>
@@ -31,76 +31,57 @@
             <a class="nav-link" href="former_members.html">Former Members</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="certifications.html">Certifications</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="generate_report.html">Reports</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <div class="container" id="memberDetail">
-        <!-- <div class="row">
-        <a id="profile_pic">
-          <img v-bind:src="userThumbnail" width=128px; height=128px>
-        </a>
-        
-        </div> -->
-
-
-
-      <div v-for='i in memberData'>
-      <h2>{{i.firstname}} {{i.lastname}}</h2>
-      <h5>Position: {{ i.position }}</h5><br>
-      <h5>Gender: {{i.gender}}</h5><br>
-      <h5>DoB: {{i.date_of_birth}}</h5><br>
-      <h5>Address: {{i.address_street}}</h5><br>
-      <h5>Email: {{i.email}}</h5><br>
-      <h5>Mobile Phone: {{i.mobile_phone}}</h5><br>
-      <h5>Work Phone: {{i.work_phone}}</h5><br>
-
-
-      <div class="table">
-        <table id="sortTable" class="table table-bordered table-striped table-hover table-condensed">
-          <thead>
-            <tr>
-              <th class="col-xs-4">Certification Name</th>
-              <th class="col-xs-4">Certification Agency</th>
-              <th class="col-xs-4">Issued Date</th>
-              <th class="col-xs-4">Expiration Period</th>
-            </tr>
-          </thead>
-          <tbody class="itable" v-for='i in memberCert'>
-            
-            <tr>
-              <td>{{i.certification_name}}</td>
-              <td>{{i.certifying_agency}}</td>
-              <td>{{i.issued_date}}</td>
-              <td>{{i.expiration_period}}</td>
-            </tr>
-
-          </tbody>
-        </table>
+    <div id="memberCertification" class="row">
+      <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+        <h1>Red Cross CPR Certification</h1>
+        <p>Description of Certification Here.</p>
+          <div class="table container">
+            <table id="sortTable member_table" class="table table-bordered table-striped table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th class="col-xs-4">Name</th>
+                  <th class="col-xs-4">Email</th>
+                </tr>
+              </thead>
+              <tbody v-for="m in memberInfo" class="itable">
+                <tr>
+                  <td>{{ m.lastname + ", " + m.firstname }}</td>
+                  <td>{{ m.email }}</td>
+                </tr>
+              </tbody>
+              </table>
+            </div>
       </div>
-          <!-- <form id="update_profile_button">
-            <button>Update Profile</button>
-          </form> -->
     </div>
-      
 
-      <!-- Regenerate Random User By Button -->
-      <!-- <button v-on:click="regenerate()">New User</button> -->
-  </div>
-  
+    <!-- <div class="row" id="add_new_member_button">
+      <form>
+        <button>Add New Member</button>
+      </form>
+    </div> -->
+
+
+    <footer> OCFR | Oconee County Fire Rescue | Oconee County, GA </footer>
     <!-- END content -->
 
     <!-- Footer? Insert here -->
-    <footer> OCFR | Oconee County Fire Rescue | Oconee County, GA </footer>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/memberDetail.app.js"></script>
+
+    <script src="js/certDetailPost.app.js"></script>
   </body>
 </html>

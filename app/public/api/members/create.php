@@ -12,14 +12,26 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO Certification (certifying_agency,certification_name,expiration_period)
-  VALUES (?, ?, ?)'
+  'INSERT INTO CurrentMembers (firstname,lastname,station_number,radio_number,address_street,address_city,address_state,address_zip,email,date_of_birth,gender,mobile_phone,work_phone,position,isActive)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
 );
 
 $stmt->execute([
-  $_POST['certifying_agency'],
-  $_POST['certification_name'],
-  $_POST['expiration_period']
+  $_POST['firstname'],
+  $_POST['lastname'],
+  $_POST['station_number'],
+  $_POST['radio_number'],
+  $_POST['address_street'],
+  $_POST['address_city'],
+  $_POST['address_state'],
+  $_POST['address_zip'],
+  $_POST['email'],
+  $_POST['date_of_birth'],
+  $_POST['gender'],
+  $_POST['mobile_phone'],
+  $_POST['work_phone'],
+  $_POST['position'],
+  $_POST['isActive']
 ]);
 
 // If needed, get auto-generated PK from DB
@@ -29,4 +41,4 @@ $stmt->execute([
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../ocfr/');
+header('Location: ../members/');

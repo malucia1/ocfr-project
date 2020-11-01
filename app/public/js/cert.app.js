@@ -2,12 +2,18 @@ var app = new Vue({
   el: '#cert',
   data: {
     certList: [],
-    newCertification: []
+    // newCertification: []
+    newCertification:{
+      certification_id: '',
+      certifying_agency: '',
+      certification_name: '',
+      expiration_period:''
+    }
   },
 
   methods:{
     fetchCert(){
-      fetch('api/ocfr/')
+      fetch('api/certifications/')
       .then(response => response.json())
       .then(json => {
         this.certList=json;
@@ -16,7 +22,7 @@ var app = new Vue({
     },
 
     createCertification() {
-      fetch('api/ocfr/certification-create.php', {
+      fetch('api/certifications/certification-create.php', {
         method:'POST',
         body: JSON.stringify(this.newCertification),
         headers: {
