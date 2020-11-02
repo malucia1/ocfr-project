@@ -103,6 +103,7 @@
       </form>
 
       </div>
+      <h5>Member Certifications</h5><br>
       <form action="api/memberDetail/delete_member_cert.php" method="POST">
       <!-- <form v-on:submit.prevent="deleteCert()"> -->
         <table id="sortTable" class="table table-bordered table-striped table-hover table-condensed">
@@ -128,7 +129,24 @@
         </table>
           <input type="submit" class="button" value="Delete Certification"><br><br>
       </form>
-      
+
+      <h5>Add Certification to Member</h5><br>
+      <form action="api/memberDetail/add_cert.php" method="POST">
+        
+          
+          <label> Select a Certification </label>
+          <select name="cId" id="cId" required>
+            <option disabled>Please select one</option>
+            <option v-for="c in certList" v-bind:value="c.certification_id">{{c.certification_name}} from {{c.certifying_agency}}, {{c.expiration_period}} year(s)</option>
+          </select><br>
+          <label for="idate"> Issued Date </label>
+          <input type="date" id="idate" name="idate" required>
+          
+          <br><br>
+ 
+          <input type="submit" value="Add" class="button"><br><br>
+        
+      </form>
 
       <!-- Regenerate Random User By Button -->
       <!-- <button v-on:click="regenerate()">New User</button> -->

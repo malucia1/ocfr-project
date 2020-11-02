@@ -35,15 +35,6 @@ var app = new Vue({
       });
     },
 
-    // fetchCert(){
-    //   fetch('api/members/')
-    //   .then(response => response.json())
-    //   .then(json => {
-    //     this.certList=json;
-    //     console.log(this.certList);
-    //   });
-    // },
-
     createMember() {
       fetch('api/members/create.php', {
         method:'POST',
@@ -63,28 +54,6 @@ var app = new Vue({
       console.log(this.newMember);
     },
 
-
-
-
-
-    // createCertification() {
-    //   fetch('api/certifications/certification-create.php', {
-    //     method:'POST',
-    //     body: JSON.stringify(this.newCertification),
-    //     headers: {
-    //       "Content-Type": "application/json; charset=utf-8"
-    //     }
-    //   })
-    //   .then( response => response.json() )
-    //   .then( json => {
-    //     console.log("Returned from post:", json);
-    //     this.certList = json;
-    //     this.newCertification = this.newCertificationData();
-    //   });
-
-    //   console.log("Creating (POSTing)...!");
-    //   console.log(this.newCertification);
-    // },
     newMemberData() {
       return {
         member_id: "",
@@ -105,17 +74,10 @@ var app = new Vue({
         isActive: ""
       }
     }
-    // newCertificationData() {
-    //   return {
-    //     certification_id: '',
-    //     certifying_agency: '',
-    //     certification_name: '',
-    //     expiration_period: ''
-    //   }
-    // }
+
+
   },
   created() {
     this.fetchUser();
-    // this.fetchCert();
   }
 });
