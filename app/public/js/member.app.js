@@ -36,6 +36,11 @@ var app = new Vue({
     },
 
     createMember() {
+      for (var i in this.newMember){
+        if (this.newMember[i] == ""){
+          this.newMember[i] = null
+        } 
+      };
       fetch('api/members/create.php', {
         method:'POST',
         body: JSON.stringify(this.newMember),
