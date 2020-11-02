@@ -6,7 +6,7 @@ require 'common.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$sql = 'SELECT m.member_id, m.firstname, m.lastname, ct.certifying_agency, ct.certification_name, c.issued_date, ct.expiration_period FROM CurrentMembers m, Certification ct, Certified c WHERE m.member_id = c.member_id and c.certification_id = ct.certification_id and (c.issued_date + ct.expiration_period * 365) < curdate()';
+$sql = 'SELECT m.member_id, m.firstname, m.lastname, ct.certifying_agency, ct.certification_name, c.issued_date, ct.expiration_period FROM CurrentMembers m, Certification ct, Certified c WHERE m.member_id = c.member_id and c.certification_id = ct.certification_id and (c.issued_date + ct.expiration_period * 10000) < curdate()';
 $vars = [];
 
 $stmt = $db->prepare($sql);
