@@ -15,14 +15,14 @@
 
   <body>
     <nav class="navbar navbar-expand-md">
-      <a class="navbar-brand" id="home-header2" href="home.html">OCFR</a>
+      <a class="navbar-brand" id="home-header2" href="index.html">OCFR</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="current_members.html">Members</a>
@@ -89,7 +89,7 @@
           New value:
           <input type="text" v-model="editMember.position" class="form-control">
 
-          <b v-if="i.isActive > 0">Is active?  True</b><b v-else>Is active?  False</b><br>
+          <b v-if="i.isActive > 0">Is active?  True</b><b v-else>Is active?  False</b><br><br>
           <label for="true"> True </label>
           <input type="radio" name="isActive" id="true" v-model="editMember.isActive" value=1>
           <label for="false"> False </label>
@@ -103,6 +103,7 @@
       </form>
 
       </div>
+      <h5>Member Certifications</h5><br>
       <form action="api/memberDetail/delete_member_cert.php" method="POST">
       <!-- <form v-on:submit.prevent="deleteCert()"> -->
         <table id="sortTable" class="table table-bordered table-striped table-hover table-condensed">
@@ -128,7 +129,24 @@
         </table>
           <input type="submit" class="button" value="Delete Certification"><br><br>
       </form>
-      
+
+      <h5>Add Certification to Member</h5><br>
+      <form action="api/memberDetail/add_cert.php" method="POST">
+        
+          
+          <label> Select a Certification </label>
+          <select name="cId" id="cId" required>
+            <option disabled>Please select one</option>
+            <option v-for="c in certList" v-bind:value="c.certification_id">{{c.certification_name}} from {{c.certifying_agency}}, {{c.expiration_period}} year(s)</option>
+          </select><br>
+          <label for="idate"> Issued Date </label>
+          <input type="date" id="idate" name="idate" required>
+          
+          <br><br>
+ 
+          <input type="submit" value="Add" class="button"><br><br>
+        
+      </form>
 
       <!-- Regenerate Random User By Button -->
       <!-- <button v-on:click="regenerate()">New User</button> -->

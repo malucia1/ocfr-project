@@ -15,14 +15,14 @@
 
   <body>
     <nav class="navbar navbar-expand-md">
-      <a class="navbar-brand" id="home-header2" href="home.html">OCFR</a>
+      <a class="navbar-brand" id="home-header2" href="index.html">OCFR</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="current_members.html">Members</a>
@@ -65,9 +65,9 @@
                 </tr>
               </tbody>
               </table>
-              <input type="submit" class="button" value="View Certification">
+              <input type="submit" class="button" value="View Certification"><br><br>
               </form>
-                <form id="NewCertificationForm" v-on:submit.prevent="createCertification()">
+              <form id="NewCertificationForm" v-on:submit.prevent="createCertification()">
                   <div class="CertificationList">
                     <label for="certifying_agency"> Certifying Agency </label>
                     <input type="text" v-model="newCertification.certifying_agency" class="form-control" required>
@@ -75,12 +75,11 @@
                     <input type="text" v-model="newCertification.certification_name" class="form-control" required>
                     <label for="expiration_period"> Expiration Period (Year)</label>
                     <input type="number" v-model="newCertification.expiration_period" class="form-control" required>
-                  </div><br/>
+                  </div><br>
                   <input type="submit" value="Create New Certification" class="button" id="submitNewCertification">
-                </form>
-            </div>
+              </form>
+          </div>
       </div>
-    </div>
     <!-- <div class="row" id="add_new_member_button">
       <form>
         <button>Add New Member</button>
