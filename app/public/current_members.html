@@ -122,9 +122,9 @@
               <input type="radio" name="gender" id="female" v-model="newMember.gender" value="F" required><br>
 
               <label for="mobile_phone"> Mobile Phone </label>
-              <input type="text" v-model="newMember.mobile_phone" class="form-control">
+              <input type="number" v-model="newMember.mobile_phone" class="form-control">
               <label for="work_phone"> Work Phone </label>
-              <input type="text" v-model="newMember.work_phone" class="form-control">
+              <input type="number" v-model="newMember.work_phone" class="form-control">
               <label for="position"> Position </label>
               <input type="text" v-model="newMember.position" class="form-control">
 
@@ -134,7 +134,7 @@
               <label for="false"> False </label>
               <input type="radio" name="isActive" id="false" v-model="newMember.isActive" value=0 required><br>
 
-              <input type="submit" class="button" value="Create New Member">
+              <input type="submit" class="button" value="Create New Member"><br><br>
             </div>
             
           </form>
