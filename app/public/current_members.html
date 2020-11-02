@@ -89,7 +89,7 @@
               </tr>
             </tbody>
             </table>
-            <input type="submit" class="button" value="View member">
+            <input type="submit" class="button" value="View member"><br><br>
           </form>
 
           <form id="NewMemberForm" v-on:submit.prevent="createMember()">
@@ -132,7 +132,7 @@
               <label for="true"> True </label>
               <input type="radio" name="isActive" id="true" v-model="newMember.isActive" value=1 required>
               <label for="false"> False </label>
-              <input type="radio" name="isActive" id="false" v-model="newMember.isActive" value=0 required><br>
+              <input type="radio" name="isActive" id="false" v-model="newMember.isActive" value=0 required><br><br>
 
               <input type="submit" class="button" value="Create New Member"><br><br>
             </div>
