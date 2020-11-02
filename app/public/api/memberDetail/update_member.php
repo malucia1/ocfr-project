@@ -47,7 +47,7 @@ $stmt->execute([
   $_POST['work_phone'],
   $_POST['position'],
   $_POST['isActive'],
-  [$getId]
+  $getId
 ]);
 
 // If needed, get auto-generated PK from DB
