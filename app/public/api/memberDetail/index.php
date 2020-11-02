@@ -6,7 +6,7 @@ require 'common.php';
 $db = DbConnection::getConnection();
 
 
-$getId = file_get_contents("data_en.json");
+$getId = file_get_contents("mid.json");
 
 // Step 2: Create & run the query
 $sql = 'SELECT * FROM CurrentMembers WHERE member_id = ?';
