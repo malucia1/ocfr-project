@@ -67,7 +67,7 @@
               </table>
               <input type="submit" class="button" value="View Certification"><br><br>
               </form>
-                <form id="NewCertificationForm" v-on:submit.prevent="createCertification()">
+              <form id="NewCertificationForm" v-on:submit.prevent="createCertification()">
                   <div class="CertificationList">
                     <label for="certifying_agency"> Certifying Agency </label>
                     <input type="text" v-model="newCertification.certifying_agency" class="form-control" required>
@@ -77,10 +77,9 @@
                     <input type="number" v-model="newCertification.expiration_period" class="form-control" required>
                   </div><br>
                   <input type="submit" value="Create New Certification" class="button" id="submitNewCertification">
-                </form>
-            </div>
+              </form>
+          </div>
       </div>
-    </div>
     <!-- <div class="row" id="add_new_member_button">
       <form>
         <button>Add New Member</button>
