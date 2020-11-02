@@ -3,6 +3,13 @@ var app = new Vue({
     data: {
       memberCert:[],
       memberData:[],
+      certList: [],
+      newCertification:{
+        certification_id: '',
+        certifying_agency: '',
+        certification_name: '',
+        expiration_period:''
+      },
       // cid:'',
       editMember: {
         member_id: "",
@@ -99,6 +106,41 @@ var app = new Vue({
           this.memberData=json;
           console.log(this.memberData);
         })
+      },
+      fetchCert(){
+        fetch('api/certifications/')
+        .then(response => response.json())
+        .then(json => {
+          this.certList=json;
+          console.log(this.certList);
+        });
+      },
+      
+      createCertification() {
+        fetch('api/certifications/certification-create.php', {
+          method:'POST',
+          body: JSON.stringify(this.newCertification),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then( response => response.json() )
+        .then( json => {
+          console.log("Returned from post:", json);
+          this.certList = json;
+          this.newCertification = this.newCertificationData();
+        });
+  
+        console.log("Creating (POSTing)...!");
+        console.log(this.newCertification);
+      },
+      newCertificationData() {
+        return {
+          certification_id: '',
+          certifying_agency: '',
+          certification_name: '',
+          expiration_period: ''
+        }
       }
   
     },
@@ -106,6 +148,7 @@ var app = new Vue({
       // this.initiate();
       this.getMember();
       this.getMemberCert();
+      this.fetchCert();
     }
   });
   
