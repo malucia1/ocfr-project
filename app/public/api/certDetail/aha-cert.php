@@ -6,7 +6,7 @@ require 'common.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$sql = 'SELECT m.firstname, m.lastname, m.email FROM CurrentMembers as m, Certification as c, Certified as cd WHERE m.member_id = cd.member_id AND c.certification_id=cd.certification_id AND c.certification_id="CPR" AND c.certifying_agency="AHA"';
+$sql = 'SELECT m.firstname, m.lastname, m.email FROM CurrentMembers as m, Certification as c, Certified as cd WHERE m.member_id = cd.member_id AND c.certification_id=cd.certification_id';
 $vars = [];
 
 if (isset($_GET['member_id'])) {
