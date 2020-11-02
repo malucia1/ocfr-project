@@ -25,10 +25,13 @@
             <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="current_members.html">Current Members</a>
+            <a class="nav-link" href="current_members.html">Members</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="former_members.html">Former Members</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="certifications.html">Certifications</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="generate_report.html">Reports</a>
@@ -48,7 +51,7 @@
 
 
       <div v-for='i in memberData'>
-      <h2>{{i.firstname}} {{i.lastname}}</h2>
+      <h2>{{i.firstname}} {{i.lastname}}</h2><br>
       <h5>Position: {{ i.position }}</h5><br>
       <h5>Gender: {{i.gender}}</h5><br>
       <h5>DoB: {{i.date_of_birth}}</h5><br>
@@ -56,21 +59,21 @@
       <h5>Email: {{i.email}}</h5><br>
       <h5>Mobile Phone: {{i.mobile_phone}}</h5><br>
       <h5>Work Phone: {{i.work_phone}}</h5><br>
-
+      <a href="editProfile.html">Edit Member</a><br><br>
 
       <div class="table">
-        <table id="sortTable" class="table table-bordered table-striped table-hover table-condensed">
+        <table id="sortTable" class="table-bordered table-striped table-hover table-condensed">
           <thead>
             <tr>
-              <th class="col-xs-4">Certification Name</th>
-              <th class="col-xs-4">Certification Agency</th>
-              <th class="col-xs-4">Issued Date</th>
-              <th class="col-xs-4">Expiration Period</th>
+              <th>Certification Name</th>
+              <th>Certification Agency</th>
+              <th>Issued Date</th>
+              <th>Expiration Period</th>
             </tr>
           </thead>
-          <tbody class="itable" v-for='i in memberCert'>
+          <tbody class="itable">
             
-            <tr>
+            <tr v-for='i in memberCert'>
               <td>{{i.certification_name}}</td>
               <td>{{i.certifying_agency}}</td>
               <td>{{i.issued_date}}</td>
