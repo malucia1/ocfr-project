@@ -42,11 +42,11 @@
         <a id="profile_pic">
           <img v-bind:src="userThumbnail" width=128px; height=128px>
         </a>
-        
+
         </div> -->
 
         <div id="member">
-          <div v-for='i in memberData'>
+          <div class="webHeaders" v-for='i in memberData'>
           <h2>{{i.firstname}} {{i.lastname}}</h2>
           <h4>Position: {{ i.position }}</h4><br>
           <h4>Gender: {{i.gender}}</h4><br>
@@ -68,7 +68,7 @@
                 </tr>
               </thead>
               <tbody class="itable" v-for='i in memberCert'>
-                
+
                 <tr>
                   <td>{{i.certification_name}}</td>
                   <td>{{i.certifying_agency}}</td>
@@ -83,7 +83,7 @@
             <button>Update Profile</button>
           </form> -->
         </div>
-      
+
 
       <!-- Regenerate Random User By Button -->
       <!-- <button v-on:click="regenerate()">New User</button> -->

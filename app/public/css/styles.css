@@ -52,6 +52,34 @@ footer{
   font-size: 36px;
 }
 
+.webHeaders{
+  text-align: center;
+}
+
+#NewMemberForm{
+    display: inline-block;
+    color: #ffffff;
+    display: inline-block;
+    background-color: #7a1a05;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 100%;
+    width: 110%;
+}
+
+#NewCertificationForm{
+    display: inline-block;
+    color: #ffffff;
+    display: inline-block;
+    background-color: #7a1a05;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 100%;
+    width: 100%;
+}
+
 .patientCard {
   margin: 4px;
   padding: 4px 8px;
