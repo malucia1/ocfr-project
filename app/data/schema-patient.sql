@@ -103,6 +103,13 @@ CREATE TABLE Certified (
   FOREIGN KEY(member_id) REFERENCES CurrentMembers(member_id),
   FOREIGN KEY(certification_id) REFERENCES Certification(certification_id)
 DROP TABLE IF EXISTS Users;
+INSERT INTO Certified (certification_id, member_id, issued_date) VALUES
+(3, 2, '2020-01-09'),
+(2, 1, '2019-05-29'),
+(5, 2, '2018-09-14'),
+(1, 8, '2020-10-16');
+
+
 CREATE TABLE Users (
   email VARCHAR(30) PRIMARY KEY,
   password VARCHAR(30),
