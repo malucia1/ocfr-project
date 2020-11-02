@@ -42,9 +42,10 @@
 
     <div id="members" class="row">
       <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
-        
+
           <div class="container">
             <h1>Members</h1>
+            <input id="filterSearch" type="text" placeholder="Filter By...">
             <table id="sortTable" class="table table-bordered table-striped table-hover table-condensed">
               <thead>
                 <tr>
@@ -56,7 +57,7 @@
                   <th class="col-xs-4">Email</th>
                 </tr>
               </thead>
-              <tbody v-for="m in memberList" class="itable">
+              <tbody id="tableFilter" v-for="m in memberList" class="itable">
                 <tr>
                   <td>{{ m.member_id }}</td>
                   <td>{{ m.firstname }}</td>
@@ -84,5 +85,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/member.app.js"></script>
+    <script src="js/filterCert.app.js"></script>
   </body>
 </html>
