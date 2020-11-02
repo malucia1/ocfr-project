@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- my custom CSS goes here -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Profile Page</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md">
+      <a class="navbar-brand" id="home-header2" href="home.html">OCFR</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="current_members.html">Members</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="former_members.html">Former Members</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="certifications.html">Certifications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="generate_report.html">Reports</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container" id="memberEdit">
+      
+      <h2>Edit Memeber Details</h2><br>
+      <form>
+      <div v-for='i in memberData'>
+      
+        <form v-on:submit.prevent="updateMember()">
+          <h5>Please only change a field when needed</h5><br>
+          <b><label for="firstname"> First Name:  {{i.firstname}} </label></b><br>
+          New value:
+          <input type="text" v-model="editMember.firstname" class="form-control">
+          <b><label for="lastname"> Last Name:  {{i.lastname}} </label></b><br>
+          New value:
+          <input type="text" v-model="editMember.lastname" class="form-control">
+          <b><label for="stationNumber"> Station Number:  {{i.station_number}} </label></b><br>
+          New value:
+          <input type="number" v-model="editMember.station_number" class="form-control">
+          <b><label for="radioNumber"> Radio Number:  {{i.radio_number}} </label></b><br>
+          New value:
+          <input type="number" v-model="editMember.radio_number" class="form-control">
+          <b><label for="address_street"> Street:  {{i.address_street}} </label></b><br>
+          New value:
+          <input type="text" v-model="editMember.address_street" class="form-control">
+          <b><label for="address_city"> City:  {{i.address_city}} </label></b><br>
+          New value:
+          <input type="text" v-model="editMember.address_city" class="form-control">
+          <b><label for="address_state"> State:  {{i.address_state}} </label></b><br>
+          New value:
+          <input type="text" v-model="editMember.address_state" class="form-control">
+          <b><label for="address_zip"> ZIP Code:  {{i.address_zip}} </label></b><br>
+          New value:
+          <input type="text" v-model="editMember.address_zip" class="form-control">
+          <b><label for="email"> Email:  {{i.email}} </label></b><br>
+          New value:
+          <input type="email" v-model="editMember.email" class="form-control">
+          <b><label for="date_of_birth"> Birthday:  {{i.date_of_birth}}</label></b><br>
+          New value:
+          <input type="date" v-model="editMember.date_of_birth" class="form-control">
+
+          <b><label for="mobile_phone"> Mobile Phone:  {{i.mobile_phone}} </label></b><br>
+          New value:
+          <input type="number" v-model="editMember.mobile_phone" class="form-control">
+          <b><label for="work_phone"> Work Phone:  {{i.work_phone}} </label></b><br>
+          New value:
+          <input type="number" v-model="editMember.work_phone" class="form-control">
+          <b><label for="position"> Position:  {{i.position}} </label></b><br>
+          New value:
+          <input type="text" v-model="editMember.position" class="form-control">
+
+          <b v-if="i.isActive > 0">Is active?  True</b><b v-else>Is active?  False</b><br>
+          <label for="true"> True </label>
+          <input type="radio" name="isActive" id="true" v-model="editMember.isActive" value=1>
+          <label for="false"> False </label>
+          <input type="radio" name="isActive" id="false" v-model="editMember.isActive" value=0><br><br>
+
+          <input type="submit" class="button" value="update"><br><br>
+        </form>
+        
+      <form action="api/memberDetail/delete_member.php">
+        <input type="submit" class="button" value="delete"><br><br>
+      </form>
+
+      </div>
+      <form action="api/memberDetail/delete_member_cert.php" method="POST">
+      <!-- <form v-on:submit.prevent="deleteCert()"> -->
+        <table id="sortTable" class="table table-bordered table-striped table-hover table-condensed">
+          <thead>
+            <tr>
+              <th>Delete</th>
+              <th>Certification Name</th>
+              <th>Certification Agency</th>
+              <th>Issued Date</th>
+              <th>Expiration Period</th>
+            </tr>
+          </thead>
+          <tbody class="itable" v-for='n in memberCert'>
+            
+            <tr>
+              <td><input type="radio" name='cid' v-bind:value="n.certified_id" required></td>
+              <td>{{n.certification_name}}</td>
+              <td>{{n.certifying_agency}}</td>
+              <td>{{n.issued_date}}</td>
+              <td>{{n.expiration_period}}</td>
+            </tr>
+          </tbody>
+        </table>
+          <input type="submit" class="button" value="Delete Certification"><br><br>
+      </form>
+      
+
+      <!-- Regenerate Random User By Button -->
+      <!-- <button v-on:click="regenerate()">New User</button> -->
+  </div>
+  
+    <!-- END content -->
+
+    <!-- Footer? Insert here -->
+    <footer> OCFR | Oconee County Fire Rescue | Oconee County, GA </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/editMember.js"></script>
+  </body>
+</html>
