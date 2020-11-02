@@ -1,7 +1,7 @@
 var app = new Vue({
     el: '#expired',
     data: {
-      memberList: []
+      memberList:[]
     },
   
     methods:{
