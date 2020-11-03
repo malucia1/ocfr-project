@@ -41,68 +41,114 @@
     </nav>
 
     <div class="container" id="memberEdit">
-      
+    
       <h2>Edit Memeber Details</h2><br>
-      <form>
-      <div v-for='i in memberData'>
       
-        <form v-on:submit.prevent="updateMember()">
+        <form action="api/memberDetail/update_member.php" method="POST">
+          <div v-for='i in memberData'>
           <h5>Please only change a field when needed</h5><br>
-          <b><label for="firstname"> First Name:  {{i.firstname}} </label></b><br>
+
+          <b><label for="firstname"> First Name: </label></b><br>
+          
+          <input type="text" name="firstname" class="form-control" v-bind:value="i.firstname">
+          <b><label for="lastname"> Last Name: </label></b><br>
+          
+          <input type="text" name="lastname" class="form-control" v-bind:value="i.lastname">
+          <b><label for="stationNumber"> Station Number: </label></b><br>
+          
+          <input type="number" name="station_number" class="form-control" v-bind:value="i.station_number">
+          <b><label for="radioNumber"> Radio Number: </label></b><br>
+          
+          <input type="number" name="radio_number" class="form-control" v-bind:value="i.radio_number">
+          <b><label for="address_street"> Street: </label></b><br>
+          
+          <input type="text" name="address_street" class="form-control" v-bind:value="i.address_street">
+          <b><label for="address_city"> City: </label></b><br>
+          
+          <input type="text" name="address_city" class="form-control" v-bind:value="i.address_city">
+          <b><label for="address_state"> State:  </label></b><br>
+          
+          <input type="text" name="address_state" class="form-control" v-bind:value="i.address_state">
+          <b><label for="address_zip"> ZIP Code:  </label></b><br>
+          
+          <input type="text" name="address_zip" class="form-control" v-bind:value="i.address_zip">
+          <b><label for="email"> Email:  </label></b><br>
+          
+          <input type="email" name="email" class="form-control" v-bind:value="i.email">
+          <b><label for="date_of_birth"> Birthday:  </label></b><br>
+          
+          <input type="date" name="date_of_birth" class="form-control" v-bind:value="i.date_of_birth">
+
+          <b><label for="mobile_phone"> Mobile Phone: </label></b><br>
+          
+          <input type="number" name="mobile_phone" class="form-control" v-bind:value="i.mobile_phone">
+          <b><label for="work_phone"> Work Phone:  </label></b><br>
+          
+          <input type="number" name="work_phone" class="form-control" v-bind:value="i.work_phone">
+          <b><label for="position"> Position: </label></b><br>
+          
+          <input type="text" name="position" class="form-control" v-bind:value="i.position">
+
+          <b>Is active?</b><br><br>
+          <label for="true"> True </label>
+          <input type="radio" name="isActive" id="true" value=1 required>
+          <label for="false"> False </label>
+          <input type="radio" name="isActive" id="false" value=0 required><br><br>
+          <!-- <b><label for="firstname"> First Name:  {{i.firstname}} </label></b><br>
           New value:
-          <input type="text" v-model="editMember.firstname" class="form-control">
+          <input type="text" name="firstname" v-model="editMember.firstname" class="form-control">
           <b><label for="lastname"> Last Name:  {{i.lastname}} </label></b><br>
           New value:
-          <input type="text" v-model="editMember.lastname" class="form-control">
+          <input type="text" name="lastname" v-model="editMember.lastname" class="form-control">
           <b><label for="stationNumber"> Station Number:  {{i.station_number}} </label></b><br>
           New value:
-          <input type="number" v-model="editMember.station_number" class="form-control">
+          <input type="number" name="station_number" v-model="editMember.station_number" class="form-control">
           <b><label for="radioNumber"> Radio Number:  {{i.radio_number}} </label></b><br>
           New value:
-          <input type="number" v-model="editMember.radio_number" class="form-control">
+          <input type="number" name="radio_number" v-model="editMember.radio_number" class="form-control">
           <b><label for="address_street"> Street:  {{i.address_street}} </label></b><br>
           New value:
-          <input type="text" v-model="editMember.address_street" class="form-control">
+          <input type="text" name="address_street" v-model="editMember.address_street" class="form-control">
           <b><label for="address_city"> City:  {{i.address_city}} </label></b><br>
           New value:
-          <input type="text" v-model="editMember.address_city" class="form-control">
+          <input type="text" name="address_city" v-model="editMember.address_city" class="form-control">
           <b><label for="address_state"> State:  {{i.address_state}} </label></b><br>
           New value:
-          <input type="text" v-model="editMember.address_state" class="form-control">
+          <input type="text" name="address_state" v-model="editMember.address_state" class="form-control">
           <b><label for="address_zip"> ZIP Code:  {{i.address_zip}} </label></b><br>
           New value:
-          <input type="text" v-model="editMember.address_zip" class="form-control">
+          <input type="text" name="address_zip" v-model="editMember.address_zip" class="form-control">
           <b><label for="email"> Email:  {{i.email}} </label></b><br>
           New value:
-          <input type="email" v-model="editMember.email" class="form-control">
+          <input type="email" name="email" v-model="editMember.email" class="form-control">
           <b><label for="date_of_birth"> Birthday:  {{i.date_of_birth}}</label></b><br>
           New value:
-          <input type="date" v-model="editMember.date_of_birth" class="form-control">
+          <input type="date" name="date_of_birth" v-model="editMember.date_of_birth" class="form-control">
 
           <b><label for="mobile_phone"> Mobile Phone:  {{i.mobile_phone}} </label></b><br>
           New value:
-          <input type="number" v-model="editMember.mobile_phone" class="form-control">
+          <input type="number" name="mobile_phone" v-model="editMember.mobile_phone" class="form-control">
           <b><label for="work_phone"> Work Phone:  {{i.work_phone}} </label></b><br>
           New value:
-          <input type="number" v-model="editMember.work_phone" class="form-control">
+          <input type="number" name="work_phone" v-model="editMember.work_phone" class="form-control">
           <b><label for="position"> Position:  {{i.position}} </label></b><br>
           New value:
-          <input type="text" v-model="editMember.position" class="form-control">
+          <input type="text" name="position" v-model="editMember.position" class="form-control">
 
           <b v-if="i.isActive > 0">Is active?  True</b><b v-else>Is active?  False</b><br><br>
           <label for="true"> True </label>
           <input type="radio" name="isActive" id="true" v-model="editMember.isActive" value=1>
           <label for="false"> False </label>
-          <input type="radio" name="isActive" id="false" v-model="editMember.isActive" value=0><br><br>
+          <input type="radio" name="isActive" id="false" v-model="editMember.isActive" value=0><br><br> -->
 
           <input type="submit" class="button" value="update"><br><br>
+        </div>
         </form>
         
       <form action="api/memberDetail/delete_member.php">
         <input type="submit" class="button" value="delete"><br><br>
       </form>
 
-      </div>
       <h5>Member Certifications</h5><br>
       <form action="api/memberDetail/delete_member_cert.php" method="POST">
       <!-- <form v-on:submit.prevent="deleteCert()"> -->
@@ -144,7 +190,7 @@
           
           <br><br>
  
-          <input type="submit" value="Add" class="button"><br><br>
+          <input type="submit" value="Add Certification" class="button"><br><br>
         
       </form>
 
