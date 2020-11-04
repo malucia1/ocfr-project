@@ -1,8 +1,8 @@
 USE OCFR;
 
 DROP TABLE IF EXISTS Certified;
-DROP TABLE IF EXISTS people;
-CREATE TABLE people (
+DROP TABLE IF EXISTS CurrentMembers;
+CREATE TABLE CurrentMembers (
   member_id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
   firstname VARCHAR(30) NOT NULL,
   lastname VARCHAR(30) NOT NULL,
@@ -21,11 +21,11 @@ CREATE TABLE people (
   isActive boolean
 );
 
-INSERT INTO people (firstname, lastname, station_number, radio_number, address_street, address_city, address_state, address_zip, email, date_of_birth, gender, mobile_phone, work_phone, position, isActive) VALUES
+INSERT INTO CurrentMembers (firstname, lastname, station_number, radio_number, address_street, address_city, address_state, address_zip, email, date_of_birth, gender, mobile_phone, work_phone, position, isActive) VALUES
 ( "Samson", "Pollak", "1", "2", "3737 S 7th St", "Terre Haute", "IN", "47802", "spk@iu.edu", "1996-10-12", "Male", "123-234-4657", "435-654-6453", "Fireman", True),
 ( "Maddie", "Lucia", "2", "3", "1010 Indiana Ave", "Bloomington", "IN", "47408", "mal@iu.edu", "1996-08-14", "Female", "321-234-4657", "999-654-6453", "Lawyer", TRUE);
 
-INSERT INTO people (firstname, lastname, date_of_birth, gender, isActive) VALUES
+INSERT INTO CurrentMembers (firstname, lastname, date_of_birth, gender, isActive) VALUES
 ("Sylvia", "Hernandez", "2012-09-01",  "F",False),
 ( "Vish", "Balasubramanian", "1950-12-15",  "M",False),
 ( "J", "Doe", "1950-00-00",  "M",False),
@@ -67,9 +67,10 @@ CREATE TABLE Certified (
   member_id int not null,
   issued_date date not null,
   FOREIGN KEY(member_id) REFERENCES CurrentMembers(member_id),
-  FOREIGN KEY(certification_id) REFERENCES Certification(certification_id)
+  FOREIGN KEY(certification_id) REFERENCES Certifications(certification_id)
 );
+
 
 INSERT INTO OCFR.Certified (member_id,certification_id,issued_date) VALUES
 (1,2,'2020-10-20'),
-(1,3,'2020-10-20')
+(1,3,'2020-10-20');
