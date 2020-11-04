@@ -15,7 +15,7 @@ if($jsondata == 1){
 } elseif($jsondata == 3){
   header('Location: /athens_firefighter.html');
 } elseif($jsondata == 4){
-  header('Location: /athens_firefighter.html');
+  header('Location: /ivy_firefighter.html');
 } elseif($jsondata == 5){
   header('Location: /post_cert.html');
 }
